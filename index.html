@@ -271,9 +271,9 @@ while searching_xis():
                         LinkedIn
                     </a>
                     <span class="highlight-badge">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                        Inglés C1 Advanced
-                    </span>
+						<svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+						Inglés B2 Upper-Intermediate
+					</span>
                 </div>
 
                 <div class="cta-row">
@@ -362,18 +362,82 @@ while searching_xis():
                     </ul>
                 </div>
 
-                <div class="tag-row">
+				<div class="tag-row">
                     <span class="tag">ISIS / WXIS</span>
                     <span class="tag">.xis Scripting</span>
                     <span class="tag">JSON APIs</span>
-                    <span class="tag">RDA / MARC21</span>
+                    <span class="tag">RDA / AACR2 / MARC21</span>
                     <span class="tag">Apache Admin</span>
                     <span class="tag">HTML5 / CSS3 / JS</span>
                     <span class="tag">Greenstone 3</span>
                     <span class="tag">SEO &amp; Security</span>
                 </div>
+            </div> <!-- ESTE DIV CIERRA LA TARJETA DEL INTI -->
+
+            <!-- ========================================== -->
+            <!-- SEGUNDO PROYECTO: ETL PIPELINE             -->
+            <!-- ========================================== -->
+            <div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
+                <div class="section-header" style="margin-bottom: 2.5rem;">
+                    <p class="section-num">Proyecto 02</p>
+                    <h3 style="font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--heading); line-height: 1.2; letter-spacing: -0.02em;">Data Normalizer Pipeline (ETL)</h3>
+                </div>
+
+                <!-- BEFORE / AFTER DEL CÓDIGO -->
+                <p class="ba-intro">El contraste visual de la curaduría de datos: a la izquierda, la materia prima (CSV legacy) con delimitadores anómalos. A la derecha, el resultado de la transformación (JSON) con su jerarquía semántica recuperada.</p>
+
+                <div class="ba-grid">
+                    <div>
+                        <p class="ba-col-label before">Antes — CSV Legacy en crudo</p>
+                        <div class="ba-thumbs">
+                            <div class="ba-thumb" data-img="etl_antes.jpg">
+                                <img src="etl_antes.jpg" alt="Vista del CSV exportado con errores de formato">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="ba-col-label after">Después — JSON Estructurado</p>
+                        <div class="ba-thumbs">
+                            <div class="ba-thumb" data-img="etl_despues.jpg">
+                                <img src="etl_despues.jpg" alt="Vista del archivo JSON limpio, normalizado y con listas anidadas">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASE CARD ETL -->
+                <div class="case-card">
+                    <p class="case-tag">Data Engineering & Python</p>
+                    <h3 class="case-title">Motor de Transformación a JSON</h3>
+                    <a class="case-url" href="https://github.com/fotilejo/data-normalizer-etl" target="_blank" rel="noopener">github.com/fotilejo/data-normalizer-etl ↗</a>
+
+                    <div class="case-block">
+                        <p class="case-block-label">El Problema</p>
+                        <p>Las exportaciones masivas de sistemas bibliotecológicos legacy presentan inconsistencias críticas (conflictos de <em>encoding</em>, delimitadores inyectados, campos repetibles colapsados en texto plano) que impiden su migración a bases de datos modernas.</p>
+                    </div>
+
+                    <div class="case-block">
+                        <p class="case-block-label">Proceso de Ingeniería</p>
+                        <ul>
+                            <li>Desarrollo de script de diagnóstico exploratorio (EDA) para mapear la base cruda.</li>
+                            <li>Automatización de limpieza estructural mediante Pandas (purga de nulos y estandarización <code>snake_case</code>).</li>
+                            <li>Transformación de cadenas planas en listas iterables reales para recuperar la jerarquía de metadatos.</li>
+                            <li>Exportación de alta precisión a formato JSON, listo para su ingesta en la Web Semántica.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tag-row">
+                        <span class="tag">Python 3.x</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">Data Architecture</span>
+                        <span class="tag">JSON APIs</span>
+                        <span class="tag">ETL Pipeline</span>
+                    </div>
+                </div>
             </div>
-        </div>
+            <!-- FIN DEL SEGUNDO PROYECTO -->
+
+        </div> <!-- Este div cierra el contenedor ".container.reveal" -->
     </section>
 
     <hr class="divider">

@@ -2,7 +2,7 @@
 
 **Information Systems Specialist | Metadata & Library Systems | Buenos Aires, Argentina**
 
-🌐 [fotilejo.github.io/joel-foti](https://fotilejo.github.io/joel-foti)
+🌐 [fotilejo.github.io/joel-foti](https://fotilejo.github.io/Joel-Foti)
 
 ---
 

@@ -435,6 +435,73 @@ while searching_xis():
                 </div>
             </div>
             <!-- FIN DEL SEGUNDO PROYECTO -->
+			
+			<!-- ========================================== -->
+            <!-- TERCER PROYECTO: GRAFOS                    -->
+            <!-- ========================================== -->
+			
+			<div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
+                <div class="section-header" style="margin-bottom: 2.5rem;">
+                    <p class="section-num">Proyecto 03</p>
+                    <h3 style="font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--heading); line-height: 1.2; letter-spacing: -0.02em;">Semantic Graph Builder</h3>
+                </div>
+
+                <p class="ba-intro">El salto a la Web Semántica: a la izquierda, el catálogo estructurado pero "plano" (islas de información). A la derecha, la topología de Grafo donde documentos, autores y temas se transforman en nodos interconectados matemáticamente.</p>
+
+                <div class="ba-grid">
+                    <div>
+                        <p class="ba-col-label before">Antes — JSON Plano (Materia Prima)</p>
+                        <div class="ba-thumbs">
+                            <div class="ba-thumb" data-img="bibliotecaJSON.jpg">
+                                <img src="bibliotecaJSON.jpg" alt="Vista del JSON plano con atributos redundantes">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="ba-col-label after">Después — Nodos y Relaciones (Grafo)</p>
+                        <div class="ba-thumbs">
+                            <div class="ba-thumb" data-img="biblioteca_grafo_semantico1.jpg">
+                                <img src="biblioteca_grafo_semantico1.jpg" alt="Vista del Grafo Semántico - Estructura General">
+                            </div>
+                            <div class="ba-thumb" data-img="biblioteca_grafo_semantico2.jpg">
+                                <img src="biblioteca_grafo_semantico2.jpg" alt="Vista del Grafo Semántico - Relaciones">
+                            </div>
+                            <div class="ba-thumb" data-img="biblioteca_grafo_semantico3.jpg">
+                                <img src="biblioteca_grafo_semantico3.jpg" alt="Vista del Grafo Semántico - Entidades">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <p class="case-tag">Knowledge Graphs & Semantic Web</p>
+                    <h3 class="case-title">Motor de Entidades y Control de Autoridades</h3>
+                    <a class="case-url" href="https://github.com/fotilejo/semantic-knowledge-graph-builder" target="_blank" rel="noopener">github.com/fotilejo/semantic-knowledge-graph-builder ↗</a>
+
+                    <div class="case-block">
+                        <p class="case-block-label">El Problema</p>
+                        <p>Las bases de datos bibliográficas y los repositorios institucionales tradicionales almacenan información redundante (ej. el nombre de un autor repetido decenas de veces). Esto crea "silos de datos" aislados que impiden la implementación de motores de descubrimiento modernos, búsquedas por inferencia o arquitecturas <strong>GraphRAG</strong> para Inteligencia Artificial.</p>
+                    </div>
+
+                    <div class="case-block">
+                        <p class="case-block-label">Ingeniería & Utilidad</p>
+                        <ul>
+                            <li><strong>Extracción dinámica:</strong> Despiece algorítmico de registros bibliográficos planos en entidades independientes (Documentos, Autores, Temas).</li>
+                            <li><strong>Control de Autoridades al vuelo:</strong> Uso de diccionarios en memoria y normalización de <em>strings</em> (capitalización) para garantizar la unicidad de cada nodo.</li>
+                            <li><strong>Modelado Semántico:</strong> Generación estructurada de <em>Tripletas Semánticas</em> (Sujeto - Predicado - Objeto) asignando UUIDs trazables.</li>
+                            <li><strong>Impacto Real:</strong> Conversión de un catálogo estático de 2.500 registros en una red semántica densa compuesta por <strong>1.104 Nodos únicos y 2.237 Relaciones</strong>, preparada para ingesta en bases de datos orientadas a grafos.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tag-row">
+                        <span class="tag">Python 3.x</span>
+                        <span class="tag">Knowledge Graphs</span>
+                        <span class="tag">Semantic Search</span>
+                        <span class="tag">GraphRAG</span>
+                        <span class="tag">Data Modeling</span>
+                    </div>
+                </div>
+            </div>
 
         </div> <!-- Este div cierra el contenedor ".container.reveal" -->
     </section>

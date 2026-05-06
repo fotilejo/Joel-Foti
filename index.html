@@ -114,6 +114,29 @@
 
         .ba-thumb img { width: 100%; height: auto; display: block; opacity: 0.8; transition: opacity 0.3s; }
         .ba-thumb:hover img { opacity: 1; }
+		
+		/* CARRUSEL HORIZONTAL */
+		.ba-carousel {
+			display: flex;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			gap: 1rem;
+			padding-bottom: 0.75rem;
+			/* Scrollbar minimalista para Firefox */
+			scrollbar-width: thin;
+			scrollbar-color: var(--muted) var(--surface);
+		}
+
+		/* Scrollbar minimalista para Chrome/Edge/Safari */
+		.ba-carousel::-webkit-scrollbar { height: 6px; }
+		.ba-carousel::-webkit-scrollbar-track { background: var(--surface); border-radius: 4px; }
+		.ba-carousel::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 4px; }
+		.ba-carousel::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+		.ba-carousel .ba-thumb {
+			flex: 0 0 100%;
+			scroll-snap-align: center;
+		}
 
         /* CASE STUDY */
         .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
@@ -457,9 +480,12 @@ while searching_xis():
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="ba-col-label after">Después — Nodos y Relaciones (Grafo)</p>
-                        <div class="ba-thumbs">
+					<div>
+                        <p class="ba-col-label after">
+                            Después — Nodos y Relaciones 
+                            <span style="text-transform:none; font-size: 0.55rem; color: var(--muted); letter-spacing: 0; margin-left: auto;">(Deslizá →)</span>
+                        </p>
+                        <div class="ba-carousel">
                             <div class="ba-thumb" data-img="biblioteca_grafo_semantico1.jpg">
                                 <img src="biblioteca_grafo_semantico1.jpg" alt="Vista del Grafo Semántico - Estructura General">
                             </div>

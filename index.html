@@ -115,33 +115,61 @@
         .ba-thumb img { width: 100%; height: auto; display: block; opacity: 0.8; transition: opacity 0.3s; }
         .ba-thumb:hover img { opacity: 1; }
 		
-		/* SPLIT-PANE CODE WINDOW (Scroll Vertical) */
-		.ba-code-pane {
-			height: 400px; /* Altura fija para simetría perfecta */
-			overflow-y: auto;
-			background: var(--surface);
+		/* FADER SHOWCASE AUTÓMATA (Stacking Fader) */
+		.ba-fader-showcase {
+			position: relative;
+			/* Usamos la altura de la imagen más alta para el contenedor */
+			height: 480px; 
 			border: 1px solid var(--border);
 			border-radius: 4px;
-			display: flex;
-			flex-direction: column;
-			/* Scrollbar minimalista estilo editor */
-			scrollbar-width: thin;
-			scrollbar-color: var(--muted) var(--bg);
+			background: var(--surface);
+			overflow: hidden;
 		}
 
-		.ba-code-pane::-webkit-scrollbar { width: 6px; }
-		.ba-code-pane::-webkit-scrollbar-track { background: var(--bg); }
-		.ba-code-pane::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 4px; }
-		.ba-code-pane::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-
-		/* Eliminamos bordes dobles internos */
-		.ba-code-pane .ba-thumb {
+		.ba-fader-showcase .ba-thumb {
+			position: absolute;
+			top: 0; left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			/* Efecto de profundidad inicial */
+			transform: scale(0.95) translateY(10px); 
+			transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 			border: none;
-			border-bottom: 1px solid var(--border);
 			border-radius: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--surface);
 		}
-		.ba-code-pane .ba-thumb:last-child {
-			border-bottom: none;
+
+		.ba-fader-showcase .ba-thumb img {
+			max-height: 90%;
+			width: auto;
+			object-fit: contain;
+			/* Sombra para separar la "carta" del fondo */
+			box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+		}
+
+		/* Definimos la animación autómata (ciclo de 12 segundos) */
+		@keyframes faderLoop {
+			0%, 25%, 100% { opacity: 0; transform: scale(0.95) translateY(10px); } /* Oculta */
+			5%, 20% { opacity: 1; transform: scale(1) translateY(0); } /* Visible y al frente */
+		}
+
+		/* Asignamos la animación con retrasos para cada 'carta' */
+		.ba-fader-showcase .ba-thumb:nth-child(1) { animation: faderLoop 12s infinite; animation-delay: 0s; z-index: 3; }
+		.ba-fader-showcase .ba-thumb:nth-child(2) { animation: faderLoop 12s infinite; animation-delay: 4s; z-index: 2; }
+		.ba-fader-showcase .ba-thumb:nth-child(3) { animation: faderLoop 12s infinite; animation-delay: 8s; z-index: 1; }
+
+		/* REAJUSTE DE LA PRIMERA COLUMNA */
+		/* Eliminamos cualquier recuadro forzado en el 'Antes' */
+		.ba-grid > div:first-child .ba-thumb {
+			border: 1px solid var(--border);
+			border-radius: 4px;
+			background: var(--surface);
+			height: auto;
+			overflow: visible;
 		}
 
         /* CASE STUDY */
@@ -480,19 +508,17 @@ while searching_xis():
 				<div class="ba-grid">
                     <div>
                         <p class="ba-col-label before">Antes — JSON Plano (Materia Prima)</p>
-                        <div class="ba-code-pane">
-                            <div class="ba-thumb" data-img="bibliotecaJSON.jpg">
-                                <img src="bibliotecaJSON.jpg" alt="Vista del JSON plano con atributos redundantes">
-                            </div>
+                        <div class="ba-thumb" data-img="bibliotecaJSON.jpg">
+                            <img src="bibliotecaJSON.jpg" alt="Vista del JSON plano con atributos redundantes">
                         </div>
                     </div>
                     
                     <div>
                         <p class="ba-col-label after">
                             Después — Nodos y Relaciones 
-                            <span style="text-transform:none; font-size: 0.55rem; color: var(--muted); letter-spacing: 0; margin-left: auto;">(Scroll ↓)</span>
+                            <span style="text-transform:none; font-size: 0.55rem; color: var(--muted); letter-spacing: 0; margin-left: auto;">( Showcase Autómata )</span>
                         </p>
-                        <div class="ba-code-pane">
+                        <div class="ba-fader-showcase">
                             <div class="ba-thumb" data-img="biblioteca_grafo_semantico1.jpg">
                                 <img src="biblioteca_grafo_semantico1.jpg" alt="Vista del Grafo Semántico - Estructura General">
                             </div>

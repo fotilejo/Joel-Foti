@@ -481,6 +481,11 @@ while searching_xis():
                             <li>Exportación de alta precisión a formato JSON, listo para su ingesta en la Web Semántica.</li>
                         </ul>
                     </div>
+					
+					<div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1rem; border-left: 2px solid var(--accent); margin-top: 1rem;">
+                        <p class="case-block-label" style="color: var(--heading);">💡 Decisiones Arquitectónicas (Human-in-the-loop)</p>
+                        <p style="font-size: 0.82rem; margin-bottom: 0;">Durante el desarrollo asistido por IA, identifiqué y corregí fallas críticas en la lógica estándar de los LLMs. Por ejemplo, forcé la reescritura de los scripts para que evadan trampas de metadatos anómalos en cabeceras legacy (<code>sep=;</code>) que rompían la ingesta de Pandas, garantizando un pipeline a prueba de errores humanos de exportación.</p>
+                    </div>
 
                     <div class="tag-row">
                         <span class="tag">Python 3.x</span>
@@ -549,6 +554,14 @@ while searching_xis():
                             <li><strong>Control de Autoridades al vuelo:</strong> Uso de diccionarios en memoria y normalización de <em>strings</em> (capitalización) para garantizar la unicidad de cada nodo.</li>
                             <li><strong>Modelado Semántico:</strong> Generación estructurada de <em>Tripletas Semánticas</em> (Sujeto - Predicado - Objeto) asignando UUIDs trazables.</li>
                             <li><strong>Impacto Real:</strong> Conversión de un catálogo estático de 2.500 registros en una red semántica densa compuesta por <strong>1.104 Nodos únicos y 2.237 Relaciones</strong>, preparada para ingesta en bases de datos orientadas a grafos.</li>
+                        </ul>
+                    </div>
+					
+					<div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1rem; border-left: 2px solid var(--accent); margin-top: 1rem;">
+                        <p class="case-block-label" style="color: var(--heading);">💡 Decisiones Arquitectónicas (Human-in-the-loop)</p>
+                        <ul style="gap: 0.2rem;">
+                            <li style="font-size: 0.82rem;"><strong>Edge Cases de Coautoría:</strong> Detecté que el script base trataba cadenas completas (ej. "Autor A; Autor B") como un solo nodo. Intervine la lógica implementando algoritmos de partición para liberar a cada coautor como una entidad independiente.</li>
+                            <li style="font-size: 0.82rem;"><strong>Fallas de Capitalización:</strong> Identifiqué que variaciones mínimas ("Información" vs "información") duplicaban nodos. Dirigí la implementación de normalización semántica al vuelo (<code>.capitalize()</code>) para blindar el Control de Autoridades del Grafo.</li>
                         </ul>
                     </div>
 

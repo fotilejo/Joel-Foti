@@ -114,63 +114,63 @@
 
         .ba-thumb img { width: 100%; height: auto; display: block; opacity: 0.8; transition: opacity 0.3s; }
         .ba-thumb:hover img { opacity: 1; }
-		
-		/* FADER SHOWCASE AUTÓMATA (Stacking Fader) */
-		.ba-fader-showcase {
-			position: relative;
-			/* Usamos la altura de la imagen más alta para el contenedor */
-			height: 480px; 
-			border: 1px solid var(--border);
-			border-radius: 4px;
-			background: var(--surface);
-			overflow: hidden;
-		}
+        
+        /* FADER SHOWCASE AUTÓMATA (Stacking Fader) */
+        .ba-fader-showcase {
+            position: relative;
+            /* Usamos la altura de la imagen más alta para el contenedor */
+            height: 480px; 
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--surface);
+            overflow: hidden;
+        }
 
-		.ba-fader-showcase .ba-thumb {
-			position: absolute;
-			top: 0; left: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			/* Efecto de profundidad inicial */
-			transform: scale(0.95) translateY(10px); 
-			transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-			border: none;
-			border-radius: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: var(--surface);
-		}
+        .ba-fader-showcase .ba-thumb {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            /* Efecto de profundidad inicial */
+            transform: scale(0.95) translateY(10px); 
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            border: none;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface);
+        }
 
-		.ba-fader-showcase .ba-thumb img {
-			max-height: 90%;
-			width: auto;
-			object-fit: contain;
-			/* Sombra para separar la "carta" del fondo */
-			box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-		}
+        .ba-fader-showcase .ba-thumb img {
+            max-height: 90%;
+            width: auto;
+            object-fit: contain;
+            /* Sombra para separar la "carta" del fondo */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+        }
 
-		/* Definimos la animación autómata (ciclo de 12 segundos) */
-		@keyframes faderLoop {
-			0%, 25%, 100% { opacity: 0; transform: scale(0.95) translateY(10px); } /* Oculta */
-			5%, 20% { opacity: 1; transform: scale(1) translateY(0); } /* Visible y al frente */
-		}
+        /* Definimos la animación autómata (ciclo de 12 segundos) */
+        @keyframes faderLoop {
+            0%, 25%, 100% { opacity: 0; transform: scale(0.95) translateY(10px); } /* Oculta */
+            5%, 20% { opacity: 1; transform: scale(1) translateY(0); } /* Visible y al frente */
+        }
 
-		/* Asignamos la animación con retrasos para cada 'carta' */
-		.ba-fader-showcase .ba-thumb:nth-child(1) { animation: faderLoop 12s infinite; animation-delay: 0s; z-index: 3; }
-		.ba-fader-showcase .ba-thumb:nth-child(2) { animation: faderLoop 12s infinite; animation-delay: 4s; z-index: 2; }
-		.ba-fader-showcase .ba-thumb:nth-child(3) { animation: faderLoop 12s infinite; animation-delay: 8s; z-index: 1; }
+        /* Asignamos la animación con retrasos para cada 'carta' */
+        .ba-fader-showcase .ba-thumb:nth-child(1) { animation: faderLoop 12s infinite; animation-delay: 0s; z-index: 3; }
+        .ba-fader-showcase .ba-thumb:nth-child(2) { animation: faderLoop 12s infinite; animation-delay: 4s; z-index: 2; }
+        .ba-fader-showcase .ba-thumb:nth-child(3) { animation: faderLoop 12s infinite; animation-delay: 8s; z-index: 1; }
 
-		/* REAJUSTE DE LA PRIMERA COLUMNA */
-		/* Eliminamos cualquier recuadro forzado en el 'Antes' */
-		.ba-grid > div:first-child .ba-thumb {
-			border: 1px solid var(--border);
-			border-radius: 4px;
-			background: var(--surface);
-			height: auto;
-			overflow: visible;
-		}
+        /* REAJUSTE DE LA PRIMERA COLUMNA */
+        /* Eliminamos cualquier recuadro forzado en el 'Antes' */
+        .ba-grid > div:first-child .ba-thumb {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--surface);
+            height: auto;
+            overflow: visible;
+        }
 
         /* CASE STUDY */
         .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
@@ -264,7 +264,6 @@
 </head>
 <body>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
     <span class="lightbox-close" id="lightbox-close">[ ESC / CERRAR ]</span>
     <img id="lightbox-img" src="" alt="">
@@ -282,7 +281,6 @@
 
 <main>
 
-    <!-- HERO -->
     <section id="hero">
         <div class="container">
             <div style="position:relative;">
@@ -311,7 +309,7 @@ while searching_xis():
                 </h1>
 
                 <p class="hero-desc">
-                    Especialista en sistemas de información con foco en la modernización de entornos legacy, arquitectura de metadatos y desarrollo de interfaces eficientes. Construyo puentes entre infraestructura ISIS/WXIS/Apache y la web moderna.
+                    Especialista en sistemas de información con foco en la modernización de entornos legacy, arquitectura de metadatos, gestión de bases de datos backend y desarrollo de interfaces web eficientes. Construyo puentes entre infraestructura ISIS/WXIS/Apache y el desarrollo moderno full-stack.
                 </p>
 
                 <div class="contact-row">
@@ -328,9 +326,9 @@ while searching_xis():
                         LinkedIn
                     </a>
                     <span class="highlight-badge">
-						<svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-						Inglés B2 Upper-Intermediate
-					</span>
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                        Inglés B2 Upper-Intermediate
+                    </span>
                 </div>
 
                 <div class="cta-row">
@@ -343,7 +341,6 @@ while searching_xis():
 
     <hr class="divider">
 
-    <!-- CASE STUDY -->
     <section id="work">
         <div class="container reveal">
             <div class="section-header">
@@ -351,7 +348,6 @@ while searching_xis():
                 <h2>Modernización del Sistema Web de la Biblioteca INTI</h2>
             </div>
 
-            <!-- BEFORE / AFTER -->
             <p class="ba-intro">El punto de partida: una interfaz construida sobre tecnología de los años 2000, sin documentación, sin diseño responsivo y con lógica de búsqueda dispersa en archivos sin estructura. Abajo, el antes y el después.</p>
 
             <div class="ba-grid">
@@ -385,7 +381,6 @@ while searching_xis():
                 </div>
             </div>
 
-            <!-- CASE CARD -->
             <div class="case-card">
                 <p class="case-tag">Reingeniería &amp; Automatización</p>
                 <h3 class="case-title">Biblioteca Central INTI</h3>
@@ -418,7 +413,7 @@ while searching_xis():
                     </ul>
                 </div>
 
-				<div class="tag-row">
+                <div class="tag-row">
                     <span class="tag">ISIS / WXIS</span>
                     <span class="tag">.xis Scripting</span>
                     <span class="tag">JSON APIs</span>
@@ -428,18 +423,12 @@ while searching_xis():
                     <span class="tag">Greenstone 3</span>
                     <span class="tag">SEO &amp; Security</span>
                 </div>
-            </div> <!-- ESTE DIV CIERRA LA TARJETA DEL INTI -->
-
-            <!-- ========================================== -->
-            <!-- SEGUNDO PROYECTO: ETL PIPELINE             -->
-            <!-- ========================================== -->
-            <div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
+            </div> <div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
                 <div class="section-header" style="margin-bottom: 2.5rem;">
                     <p class="section-num">Proyecto 02</p>
                     <h3 style="font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--heading); line-height: 1.2; letter-spacing: -0.02em;">Data Normalizer Pipeline (ETL)</h3>
                 </div>
 
-                <!-- BEFORE / AFTER DEL CÓDIGO -->
                 <p class="ba-intro">El contraste visual de la curaduría de datos: a la izquierda, la materia prima (CSV legacy) con delimitadores anómalos. A la derecha, el resultado de la transformación (JSON) con su jerarquía semántica recuperada.</p>
 
                 <div class="ba-grid">
@@ -461,7 +450,6 @@ while searching_xis():
                     </div>
                 </div>
 
-                <!-- CASE CARD ETL -->
                 <div class="case-card">
                     <p class="case-tag">Data Engineering & Python</p>
                     <h3 class="case-title">Motor de Transformación a JSON</h3>
@@ -481,8 +469,8 @@ while searching_xis():
                             <li>Exportación de alta precisión a formato JSON, listo para su ingesta en la Web Semántica.</li>
                         </ul>
                     </div>
-					
-					<div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1rem; border-left: 2px solid var(--accent); margin-top: 1rem;">
+                    
+                    <div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1rem; border-left: 2px solid var(--accent); margin-top: 1rem;">
                         <p class="case-block-label" style="color: var(--heading);">💡 Decisiones Arquitectónicas (Human-in-the-loop)</p>
                         <p style="font-size: 0.82rem; margin-bottom: 0;">Durante el desarrollo asistido por IA, identifiqué y corregí fallas críticas en la lógica estándar de los LLMs. Por ejemplo, forcé la reescritura de los scripts para que evadan trampas de metadatos anómalos en cabeceras legacy (<code>sep=;</code>) que rompían la ingesta de Pandas, garantizando un pipeline a prueba de errores humanos de exportación.</p>
                     </div>
@@ -496,13 +484,7 @@ while searching_xis():
                     </div>
                 </div>
             </div>
-            <!-- FIN DEL SEGUNDO PROYECTO -->
-			
-			<!-- ========================================== -->
-            <!-- TERCER PROYECTO: GRAFOS                    -->
-            <!-- ========================================== -->
-			
-			<div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
+            <div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
                 <div class="section-header" style="margin-bottom: 2.5rem;">
                     <p class="section-num">Proyecto 03</p>
                     <h3 style="font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--heading); line-height: 1.2; letter-spacing: -0.02em;">Semantic Graph Builder</h3>
@@ -510,7 +492,7 @@ while searching_xis():
 
                 <p class="ba-intro">El salto a la Web Semántica: a la izquierda, el catálogo estructurado pero "plano" (islas de información). A la derecha, la topología de Grafo donde documentos, autores y temas se transforman en nodos interconectados matemáticamente.</p>
 
-				<div class="ba-grid">
+                <div class="ba-grid">
                     <div>
                         <p class="ba-col-label before">Antes — JSON Plano (Materia Prima)</p>
                         <div class="ba-thumb" data-img="bibliotecaJSON.jpg">
@@ -556,8 +538,8 @@ while searching_xis():
                             <li><strong>Impacto Real:</strong> Conversión de un catálogo estático de 2.500 registros en una red semántica densa compuesta por <strong>1.104 Nodos únicos y 2.237 Relaciones</strong>, preparada para ingesta en bases de datos orientadas a grafos.</li>
                         </ul>
                     </div>
-					
-					<div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1rem; border-left: 2px solid var(--accent); margin-top: 1rem;">
+                    
+                    <div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1rem; border-left: 2px solid var(--accent); margin-top: 1rem;">
                         <p class="case-block-label" style="color: var(--heading);">💡 Decisiones Arquitectónicas (Human-in-the-loop)</p>
                         <ul style="gap: 0.2rem;">
                             <li style="font-size: 0.82rem;"><strong>Edge Cases de Coautoría:</strong> Detecté que el script base trataba cadenas completas (ej. "Autor A; Autor B") como un solo nodo. Intervine la lógica implementando algoritmos de partición para liberar a cada coautor como una entidad independiente.</li>
@@ -574,45 +556,60 @@ while searching_xis():
                     </div>
                 </div>
             </div>
-			
-			<!-- ========================================== -->
-            <!-- CUARTO PROYECTO: FASE 2 (EN DESARROLLO)    -->
-            <!-- ========================================== -->
             
-            <div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border); opacity: 0.85;">
+            <div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
                 <div class="section-header" style="margin-bottom: 2.5rem;">
-                    <p class="section-num" style="color: var(--muted);">Proyecto 04 — En Desarrollo</p>
-                    <h3 style="font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--muted); line-height: 1.2; letter-spacing: -0.02em;">Motores de Grafo y Razonamiento Semántico</h3>
+                    <p class="section-num" style="color: var(--accent);">Proyecto 04</p>
+                    <h3 style="font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--heading); line-height: 1.2; letter-spacing: -0.02em;">Motores de Grafo y Razonamiento Semántico</h3>
                 </div>
 
-                <p class="ba-intro">Esta fase de mi roadmap profesional (actualmente en ejecución) bifurca el catálogo estructurado en la Fase 1 hacia dos arquitecturas de bases de datos especializadas, demostrando el criterio para elegir la tecnología adecuada según el dominio del problema.</p>
+                <p class="ba-intro">Bifurcación del catálogo estructurado en la Fase 1 hacia dos arquitecturas de bases de datos especializadas, demostrando el criterio para elegir la tecnología adecuada según el dominio del problema: rendimiento de búsqueda por afinidad vs. rigor lógico para inferencias complejas.</p>
 
-                <div class="case-card" style="border-style: dashed;">
+                <div class="case-card">
                     <div class="case-block" style="border-top: none; padding-top: 0;">
-                        <p class="case-block-label">Sprint 2.1: Búsqueda y Rendimiento (Property Graphs)</p>
-                        <p><strong>Tecnologías:</strong> Neo4j, Cypher.<br>
-                        <strong>Objetivo:</strong> Ingestar el catálogo bibliotecario (1.104 nodos) en una instancia de Neo4j. El enfoque aquí es construir un backend de alto rendimiento capaz de ejecutar consultas de <em>n</em> saltos de profundidad, priorizando la escalabilidad y la velocidad de recuperación para interfaces web modernas.</p>
+                        <p class="case-block-label">Sprint 2.1: Materialización y GraphRAG (Property Graphs)</p>
+                        <p><strong>Tecnologías:</strong> Neo4j, Cypher, APOC.<br>
+                        <strong>Objetivo Logrado:</strong> Ingesta del catálogo bibliotecario (1.104 nodos y 2.237 relaciones) en una instancia de Neo4j. Construcción de un backend de alto rendimiento capaz de ejecutar consultas analíticas multi-salto, priorizando la escalabilidad y habilitando motores de recomendación.</p>
                     </div>
 
                     <div class="case-block">
-                        <p class="case-block-label">Sprint 2.2: Lógica y Ontologías (Web Semántica W3C)</p>
+                        <p class="case-block-label">Sprint 2.2: Lógica y Ontologías (Web Semántica W3C) - En Desarrollo</p>
                         <p><strong>Tecnologías:</strong> RDF, OWL, SPARQL, Protégé.<br>
-                        <strong>Objetivo:</strong> Construcción de un "Grafo de Conocimiento Histórico". A diferencia del enfoque de propiedades, este sprint utiliza rigor lógico estricto (tripletas Sujeto-Predicado-Objeto) para que el sistema realice inferencias automatizadas sobre procesos históricos complejos, validando mi dominio de los estándares de la Web Semántica pura.</p>
+                        <strong>Objetivo:</strong> Construcción de un "Grafo de Conocimiento Histórico". A diferencia del enfoque de propiedades, este sprint utiliza rigor lógico estricto (tripletas Sujeto-Predicado-Objeto) para que el sistema realice inferencias automatizadas sobre procesos históricos complejos.</p>
                     </div>
                     
-                    <!-- Espacio reservado para futuras intervenciones -->
-                    <div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1rem; border-left: 2px solid var(--muted); margin-top: 1rem; opacity: 0.7;">
-                        <p class="case-block-label" style="color: var(--muted);">[ Espacio reservado para documentar decisiones de Arquitectura y refactorización sobre IA en Cypher / SPARQL ]</p>
+                    <div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1.25rem; border-left: 2px solid var(--accent); margin-top: 1.5rem;">
+                        <p class="case-block-label" style="color: var(--heading);">💡 Resoluciones y Arquitectura Backend (Human-in-the-loop)</p>
+                        <ul style="gap: 0.6rem; list-style: none; padding-left: 0; margin-top: 0.5rem;">
+                            <li style="font-size: 0.85rem; color: var(--text); padding-left: 1.4rem; position: relative;">
+                                <span style="color: var(--accent); position: absolute; left: 0;">→</span>
+                                <strong>Debugging Silencioso en Ingesta:</strong> Durante la materialización del grafo en Neo4j, los scripts iniciales fallaban silenciosamente (0 relaciones creadas). Audité la lógica y detecté una discrepancia en el pipeline ETL: el motor buscaba la llave <code>relaciones</code>, mientras que yo había mapeado la topología bajo la llave semántica <code>enlaces</code>. Refactoricé las consultas Cypher integrando <code>OPTIONAL MATCH</code> y blindaje de tipos de datos, logrando la conexión total del grafo.
+                            </li>
+                            <li style="font-size: 0.85rem; color: var(--text); padding-left: 1.4rem; position: relative;">
+                                <span style="color: var(--accent); position: absolute; left: 0;">→</span>
+                                <strong>Bypass de Restricciones de Entorno:</strong> Ante los bloqueos de seguridad locales de la librería APOC y las extensiones ocultas en Windows, reorienté la arquitectura para forzar la lectura del archivo maestro directamente desde el repositorio raw en la nube (GitHub), garantizando un despliegue sin fricciones.
+                            </li>
+                            <li style="font-size: 0.85rem; color: var(--text); padding-left: 1.4rem; position: relative;">
+                                <span style="color: var(--accent); position: absolute; left: 0;">→</span>
+                                <strong>Sistemas de Recomendación:</strong> Diseñé y probé un algoritmo de <em>Content-Based Filtering</em> que calcula la distancia semántica entre documentos mediante la contabilidad de descriptores temáticos compartidos en la red, superando holgadamente los límites de procesamiento de los JOINs tradicionales en SQL.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tag-row">
+                        <span class="tag">Neo4j</span>
+                        <span class="tag">Cypher</span>
+                        <span class="tag">Graph Database</span>
+                        <span class="tag">GraphRAG</span>
+                        <span class="tag">Backend Architecture</span>
                     </div>
                 </div>
             </div>
 
-        </div> <!-- Este div cierra el contenedor ".container.reveal" -->
-    </section>
+        </div> </section>
 
     <hr class="divider">
 
-    <!-- CAPABILITIES -->
     <section id="stack">
         <div class="container reveal">
             <div class="section-header">
@@ -632,14 +629,14 @@ while searching_xis():
                     <p class="cap-desc">Normalización internacional de metadatos bibliográficos. Tesauros, descriptores y vocabularios controlados (CDU, LEMB, FOCAD).</p>
                 </div>
                 <div class="cap-cell">
-                    <p class="cap-label">Web & Infraestructura</p>
-                    <p class="cap-title">HTML/CSS/JS · Apache</p>
-                    <p class="cap-desc">Desarrollo de interfaces responsivas e integración con backends legacy. Administración de servidores Apache, SEO y hardening de seguridad.</p>
+                    <p class="cap-label">Web & Backend</p>
+                    <p class="cap-title">HTML/CSS/JS · Neo4j</p>
+                    <p class="cap-desc">Desarrollo de interfaces, bases de datos orientadas a grafos, scripting Cypher y gestión de infraestructura Apache.</p>
                 </div>
                 <div class="cap-cell">
                     <p class="cap-label">Soft Skills</p>
                     <p class="cap-title">Comunicación &amp; Docencia</p>
-                    <p class="cap-desc">Años de experiencia docente en nivel secundario forjaron capacidad de síntesis, manejo de grupos y comunicación técnica a distintas audiencias.</p>
+                    <p class="cap-desc">Años de experiencia docente en nivel secundario y superior forjaron capacidad de síntesis, manejo de grupos y comunicación técnica a distintas audiencias.</p>
                 </div>
             </div>
         </div>
@@ -647,7 +644,6 @@ while searching_xis():
 
     <hr class="divider">
 
-    <!-- EXPERIENCE -->
     <section id="experience">
         <div class="container reveal">
             <div class="section-header">
@@ -721,7 +717,6 @@ while searching_xis():
 
     <hr class="divider">
 
-    <!-- ABOUT -->
     <section id="about">
         <div class="container reveal">
             <div class="section-header">
@@ -735,10 +730,10 @@ while searching_xis():
                         Soy bibliotecario y especialista en sistemas de información con un fuerte perfil tecnológico. Cuento con dos títulos de grado por la <strong>Universidad de Buenos Aires (UBA)</strong> — en Bibliotecología y Ciencia de la Información y en Historia — que me formaron con algo que no abunda en el mercado tech: <strong>rigor metodológico para estructurar, clasificar y recuperar volúmenes masivos de datos complejos</strong>.
                     </p>
                     <p>
-                        En el <strong>INTI</strong>, tomé un sistema web legacy que nadie quería tocar, lo entendí desde los cimientos mediante ingeniería inversa, y lo reconstruí por completo: reescribí scripts de búsqueda, modifiqué bases de datos, desarrollé la lógica backend para integrar un tesauro dinámico en JSON y llevé la interfaz a estándares modernos. El resultado vive en producción y es usado por investigadores todos los días.
+                        En el <strong>INTI</strong>, tomé un sistema web legacy que nadie quería tocar, lo entendí desde los cimientos mediante ingeniería inversa, y lo reconstruí por completo: reescribí scripts de búsqueda, modifiqué bases de datos, desarrollé la lógica backend para integrar un tesauro dinámico en JSON y llevé la interfaz a estándares modernos integrando tanto frontend como manejo directo de bases de datos. El resultado vive en producción y es usado por investigadores todos los días.
                     </p>
                     <p>
-                        Trabajo con IA (Claude, Gemini) como multiplicador de velocidad de entrega — lo que se conoce como <em>vibe coding</em> — para construir soluciones que combinan el conocimiento profundo de los datos con la capacidad de entregarlos en interfaces eficientes.
+                        Trabajo con IA (Claude, Gemini) como multiplicador de velocidad de entrega — lo que se conoce como <em>vibe coding</em> — para construir soluciones que combinan el conocimiento profundo de los datos con la capacidad de entregarlos en arquitecturas escalables.
                     </p>
                 </div>
 
@@ -750,16 +745,16 @@ while searching_xis():
                             <span class="edu-status">En curso</span>
                         </div>
                         <div class="edu-item">
-                            <span class="edu-name">Prof. en Bibliotecología y Ciencia de la Información (UBA)</span>
+                            <span class="edu-name">Prof. de Enseñanza Media y Superior en Bibliotecología y Ciencia de la Información (UBA)</span>
                             <span class="edu-status">Grado</span>
                         </div>
                         <div class="edu-item">
-                            <span class="edu-name">Prof. en Historia (UBA)</span>
+                            <span class="edu-name">Prof. de Enseñanza Media y Superior en Historia (UBA)</span>
                             <span class="edu-status">Grado</span>
                         </div>
                         <div class="edu-item">
                             <span class="edu-name">Inglés — Laboratorio de Idiomas UBA</span>
-                            <span class="edu-status">B2 Upper-Intermediate (8 años Lab. Idiomas UBA)</span>
+                            <span class="edu-status">B2 Upper-Intermediate (8 años)</span>
                         </div>
                         <div class="edu-item">
                             <span class="edu-name">SQL, Python, Excel (Udemy)</span>

@@ -62,7 +62,6 @@ Led the technical redesign and modernization of the institutional library web sy
 - **Licenciatura en Ciencia de la Información** — UBA *(in progress)*
 - **Profesorado de Enseñanza Media y Superior en Bibliotecología y Ciencia de la Información** — UBA
 - **Profesorado de Enseñanza Media y Superior en Historia** — UBA
-- **Especialización en Gestión de la Información** — UNLP *(Accepted, starting March 2025)*
 
 **Certifications:** English B2 Upper-Intermediate (Laboratorio de Idiomas, UBA) | Databases SQL & MySQL | Introduction to Python
 

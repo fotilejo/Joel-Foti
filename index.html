@@ -10,20 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg:        #0a0f1e;
-            --surface:   #111827;
-            --surface2:  #1a2235;
-            --border:    rgba(255,255,255,0.06);
-            --border2:   rgba(255,255,255,0.12);
-            --muted:     #6b7280;
-            --text:      #9ca3af;
-            --body:      #d1d5db;
-            --heading:   #f9fafb;
-            --accent:    #38bdf8;
-            --accent2:   #6366f1;
-            --green:     #10b981;
-            --amber:     #f59e0b;
-            --pink:      #ec4899;
+            /* ── PALETA SOFT DARK (Fondos suaves, Texto iluminado) ── */
+            --bg:        #22272e; /* Fondo suave azul-grisáceo */
+            --surface:   #2d333b; /* Tarjetas sutilmente más claras */
+            --surface2:  #373e47; /* Elementos secundarios */
+            --border:    rgba(255, 255, 255, 0.12);
+            --border2:   rgba(255, 255, 255, 0.20);
+            
+            /* Textos aclarados para máxima legibilidad */
+            --muted:     #9ca3af; /* Textos secundarios: gris claro y legible */
+            --text:      #cbd5e1; 
+            --body:      #e2e8f0; /* Texto principal: casi blanco perlado, perfecto para leer */
+            --heading:   #ffffff; /* Títulos: blanco puro y nítido */
+            
+            /* ── ACENTOS INTENSOS (Armonizados) ── */
+            --accent:    #539bf5; /* Azul/Cyan suave y tecnológico */
+            --accent2:   #8cb6ff;
+            --green:     #57ab5a; /* Verde relajado */
+            --amber:     #e3b341; /* Ámbar/Mostaza */
+            --pink:      #e275ad; /* Rosa atenuado */
+            
             --mono:      'JetBrains Mono', monospace;
             --serif:     'Fraunces', serif;
             --sans:      'DM Sans', sans-serif;
@@ -49,11 +55,11 @@
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
             display: flex; justify-content: space-between; align-items: center;
             padding: 1rem 2.5rem;
-            background: rgba(10,15,30,0.9);
+            background: rgba(34, 39, 46, 0.85);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
-        .nav-logo { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; }
+        .nav-logo { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; font-weight: 500;}
         .nav-links { display: flex; gap: 2rem; font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.08em; }
         .nav-links a:hover { color: var(--accent); }
 
@@ -68,6 +74,7 @@
             letter-spacing: 0.2em; text-transform: uppercase;
             color: var(--accent); margin-bottom: 1.5rem;
             display: flex; align-items: center; gap: 0.75rem;
+            font-weight: 500;
         }
         .eyebrow::before { content: ''; width: 1.5rem; height: 1px; background: var(--accent); }
 
@@ -75,6 +82,7 @@
             font-family: var(--mono); font-size: 0.65rem;
             letter-spacing: 0.18em; text-transform: uppercase;
             color: var(--muted); margin-bottom: 0.6rem;
+            font-weight: 500;
         }
 
         h1 {
@@ -106,7 +114,7 @@
         }
 
         .hero-desc {
-            font-family: var(--sans); font-size: 1rem; font-weight: 300;
+            font-family: var(--sans); font-size: 1.05rem; font-weight: 400;
             color: var(--body); max-width: 54ch; margin-bottom: 2.5rem;
             line-height: 1.9; border-left: 2px solid var(--accent);
             padding-left: 1.25rem;
@@ -114,27 +122,27 @@
 
         .contact-row {
             display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;
-            font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
+            font-family: var(--mono); font-size: 0.75rem; color: var(--muted);
         }
         .contact-row a { display: flex; align-items: center; gap: 0.4rem; }
         .contact-row a:hover { color: var(--accent); }
-        .badge { color: var(--accent); display: flex; align-items: center; gap: 0.4rem; }
+        .badge { color: var(--accent); display: flex; align-items: center; gap: 0.4rem; font-weight: 500;}
 
         .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
         .btn {
             font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em;
-            text-transform: uppercase; padding: 0.8rem 1.6rem;
+            text-transform: uppercase; padding: 0.8rem 1.6rem; font-weight: 500;
             border: 1px solid var(--accent); color: var(--accent);
             transition: all 0.2s; display: inline-block;
         }
         .btn:hover { background: var(--accent); color: var(--bg); }
-        .btn-ghost { border-color: var(--border2); color: var(--muted); }
-        .btn-ghost:hover { border-color: var(--body); color: var(--body); background: transparent; }
+        .btn-ghost { border-color: var(--border2); color: var(--body); }
+        .btn-ghost:hover { border-color: var(--heading); color: var(--heading); background: transparent; }
 
         .code-float {
             position: absolute; right: 0; top: 50%; transform: translateY(-50%);
             font-family: var(--mono); font-size: 0.65rem; line-height: 1.9;
-            color: var(--accent); opacity: 0.06; pointer-events: none;
+            color: var(--accent); opacity: 0.08; pointer-events: none;
             animation: levitate 7s ease-in-out infinite; display: none;
         }
         @media (min-width: 1100px) { .code-float { display: block; } }
@@ -158,13 +166,13 @@
         .proj-meta { flex: 1; }
         .proj-tag {
             font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
-            text-transform: uppercase; margin-bottom: 0.3rem;
+            text-transform: uppercase; margin-bottom: 0.3rem; font-weight: 500;
         }
         .proj-url {
             font-family: var(--mono); font-size: 0.62rem; display: block;
-            margin-top: 0.3rem; opacity: 0.7;
+            margin-top: 0.3rem; color: var(--muted); transition: color 0.2s;
         }
-        .proj-url:hover { opacity: 1; }
+        .proj-url:hover { color: var(--heading); }
 
         /* ── PROJECT DIVIDER ── */
         .proj-section {
@@ -174,14 +182,14 @@
         .proj-section:first-of-type { border-top: none; padding-top: 0; }
 
         /* ── BA GRID ── */
-        .ba-intro { font-family: var(--sans); font-size: 0.88rem; color: var(--muted); margin-bottom: 1.75rem; max-width: 62ch; line-height: 1.8; }
+        .ba-intro { font-family: var(--sans); font-size: 0.95rem; color: var(--body); margin-bottom: 1.75rem; max-width: 62ch; line-height: 1.8; }
 
         .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
 
         .ba-col-label {
-            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
+            font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
             text-transform: uppercase; margin-bottom: 0.65rem;
-            display: flex; align-items: center; gap: 0.5rem;
+            display: flex; align-items: center; gap: 0.5rem; font-weight: 500;
         }
         .ba-col-label::before { content: ''; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: currentColor; flex-shrink: 0; }
         .ba-col-label.before { color: var(--muted); }
@@ -192,15 +200,33 @@
         .ba-thumb {
             border: 1px solid var(--border); overflow: hidden;
             background: var(--surface); cursor: zoom-in; position: relative;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s; border-radius: 4px;
         }
         .ba-thumb:hover { border-color: var(--border2); }
-        .ba-thumb img { width: 100%; height: auto; display: block; opacity: 0.82; transition: opacity 0.3s; }
+        .ba-thumb img { width: 100%; height: auto; display: block; opacity: 0.85; transition: opacity 0.3s; }
         .ba-thumb:hover img { opacity: 1; }
+
+        /* BROWSER MOCKUP */
+        .browser-mockup {
+            border: 1px solid var(--border); border-radius: 6px;
+            overflow: hidden; background: var(--surface);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            cursor: zoom-in; position: relative;
+        }
+        .browser-bar {
+            background: var(--surface2); padding: 0.5rem 0.75rem;
+            display: flex; gap: 0.35rem; border-bottom: 1px solid var(--border);
+        }
+        .browser-bar i { width: 9px; height: 9px; border-radius: 50%; }
+        .browser-bar i:nth-child(1) { background: #fca5a5; border: 1px solid #f87171;}
+        .browser-bar i:nth-child(2) { background: #fcd34d; border: 1px solid #facc15;}
+        .browser-bar i:nth-child(3) { background: #86efac; border: 1px solid #4ade80;}
+        .browser-mockup img { width: 100%; display: block; opacity: 0.95; transition: opacity 0.3s; }
+        .browser-mockup:hover img { opacity: 1; }
 
         /* fader showcase */
         .ba-fader-showcase {
-            position: relative; height: 420px;
+            position: relative; height: 420px; border-radius: 4px;
             border: 1px solid var(--border); background: var(--surface); overflow: hidden;
         }
         .ba-fader-showcase .ba-thumb {
@@ -209,7 +235,7 @@
             transition: opacity 1s ease-in-out, transform 1s ease-in-out;
             border: none; display: flex; align-items: center; justify-content: center; background: var(--surface);
         }
-        .ba-fader-showcase .ba-thumb img { max-height: 90%; width: auto; object-fit: contain; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+        .ba-fader-showcase .ba-thumb img { max-height: 90%; width: auto; object-fit: contain; box-shadow: 0 8px 24px rgba(0,0,0,0.5); opacity: 1;}
         @keyframes faderLoop {
             0%,25%,100%{opacity:0;transform:scale(0.96) translateY(8px)}
             5%,20%{opacity:1;transform:scale(1) translateY(0)}
@@ -219,121 +245,134 @@
         .ba-fader-showcase .ba-thumb:nth-child(3){animation:faderLoop 12s infinite;animation-delay:8s;z-index:1}
 
         /* ── CASE CARD ── */
-        .case-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; }
+        .case-card { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; border-radius: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); }
 
-        .case-block { padding: 1.1rem 0; border-top: 1px solid var(--border); }
+        .case-block { padding: 1.25rem 0; border-top: 1px solid var(--border); }
         .case-block:first-child { border-top: none; padding-top: 0; }
 
         .case-block-label {
-            font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em;
-            text-transform: uppercase; color: var(--muted); margin-bottom: 0.65rem;
+            font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--muted); margin-bottom: 0.85rem; font-weight: 500;
         }
-        .case-block p { font-size: 0.88rem; line-height: 1.8; color: var(--body); }
+        .case-block p { font-size: 0.95rem; line-height: 1.8; color: var(--body); }
 
-        .case-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+        .case-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
         .case-block ul li {
-            font-size: 0.85rem; color: var(--body); line-height: 1.65;
+            font-size: 0.92rem; color: var(--body); line-height: 1.65;
             padding-left: 1.35rem; position: relative;
         }
-        .case-block ul li::before { content: '→'; color: var(--accent); position: absolute; left: 0; top: 0.05em; }
-        .case-block ul li code { font-family: var(--mono); font-size: 0.75rem; white-space: nowrap; }
+        .case-block ul li::before { content: '→'; color: var(--accent); position: absolute; left: 0; top: 0.05em; font-weight: bold;}
+        .case-block ul li code { font-family: var(--mono); font-size: 0.8rem; white-space: nowrap; background: var(--surface2); padding: 0.1rem 0.3rem; border-radius: 3px; color: var(--heading);}
 
         /* ── HUMAN IN THE LOOP ── */
         .hitl {
-            margin-top: 1.25rem;
-            border: 1px solid rgba(99,102,241,0.25);
-            background: rgba(99,102,241,0.04);
-            padding: 1.25rem 1.5rem;
+            margin-top: 1.5rem; border-radius: 4px;
+            border: 1px solid rgba(83, 155, 245, 0.3);
+            background: rgba(83, 155, 245, 0.06);
+            padding: 1.5rem;
         }
         .hitl-header {
             display: flex; align-items: center; gap: 0.6rem;
             margin-bottom: 0.85rem;
         }
-        .hitl-icon { font-size: 1rem; flex-shrink: 0; }
+        .hitl-icon { font-size: 1.1rem; flex-shrink: 0; }
         .hitl-label {
-            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
-            text-transform: uppercase; color: #a5b4fc;
+            font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--accent); font-weight: 700;
         }
         .hitl ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
         .hitl ul li {
-            font-size: 0.83rem; color: var(--body); line-height: 1.7;
+            font-size: 0.9rem; color: var(--body); line-height: 1.7;
             padding-left: 1.35rem; position: relative;
         }
-        .hitl ul li::before { content: '→'; color: #818cf8; position: absolute; left: 0; top: 0.05em; }
-        .hitl p { font-size: 0.83rem; color: var(--body); line-height: 1.75; }
+        .hitl ul li::before { content: '→'; color: var(--accent); position: absolute; left: 0; top: 0.05em; }
+        .hitl p { font-size: 0.9rem; color: var(--body); line-height: 1.75; }
 
         /* ── TAGS ── */
-        .tag-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.5rem; }
+        .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
         .tag {
-            font-family: var(--mono); font-size: 0.58rem; padding: 0.25rem 0.65rem;
-            border: 1px solid var(--border2); color: var(--muted);
-            background: rgba(255,255,255,0.02); transition: border-color 0.2s, color 0.2s;
+            font-family: var(--mono); font-size: 0.65rem; padding: 0.35rem 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.15); color: var(--text);
+            background: rgba(255, 255, 255, 0.05); transition: all 0.2s; border-radius: 100px; font-weight: 500;
         }
-        .tag:hover { border-color: var(--accent); color: var(--accent); }
+        
+        /* Colores específicos para tags al hacer hover, manteniendo tu paleta intensa */
+        .tag:hover { border-color: var(--accent); background: var(--accent); color: var(--bg); }
+        .proj-section:nth-of-type(2) .tag:hover { border-color: var(--green); background: var(--green); color: var(--bg); }
+        .proj-section:nth-of-type(3) .tag:hover { border-color: var(--amber); background: var(--amber); color: var(--bg); }
+        .proj-section:nth-of-type(4) .tag:hover { border-color: var(--pink); background: var(--pink); color: var(--bg); }
 
         /* live badge */
         .live-badge {
-            position: absolute; top: 0.6rem; right: 0.6rem;
-            font-family: var(--mono); font-size: 0.58rem; font-weight: 500;
-            background: var(--green); color: #000;
-            padding: 0.15rem 0.5rem; display: flex; align-items: center; gap: 0.3rem;
+            position: absolute; top: 0.75rem; right: 0.75rem;
+            font-family: var(--mono); font-size: 0.6rem; font-weight: 700;
+            background: var(--green); color: #fff; border-radius: 4px;
+            padding: 0.25rem 0.6rem; display: flex; align-items: center; gap: 0.4rem; z-index: 10;
         }
-        .live-dot { width: 5px; height: 5px; background: #000; border-radius: 50%; animation: blink 1.6s ease-in-out infinite; }
+        .live-dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; animation: blink 1.6s ease-in-out infinite; }
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
         /* ── CAPABILITIES ── */
         .caps-grid {
             display: grid; grid-template-columns: repeat(4, 1fr);
-            gap: 1px; background: var(--border); border: 1px solid var(--border);
+            gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
         }
-        .cap-cell { background: var(--surface); padding: 1.75rem 1.5rem; transition: background 0.2s; }
-        .cap-cell:hover { background: rgba(56,189,248,0.05); }
+        .cap-cell { background: var(--surface); padding: 2rem 1.5rem; transition: background 0.2s; }
+        .cap-cell:hover { background: rgba(255, 255, 255, 0.03); }
         .cap-phase {
-            font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.18em;
-            text-transform: uppercase; margin-bottom: 0.65rem;
+            font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em;
+            text-transform: uppercase; margin-bottom: 0.85rem; font-weight: 700;
         }
-        .cap-title { font-size: 0.88rem; font-weight: 500; color: var(--heading); margin-bottom: 0.55rem; font-family: var(--sans); }
-        .cap-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.7; font-family: var(--sans); }
+        .cap-title { font-size: 1rem; font-weight: 500; color: var(--heading); margin-bottom: 0.65rem; font-family: var(--sans); }
+        .cap-desc { font-size: 0.9rem; color: var(--body); line-height: 1.7; font-family: var(--sans); }
 
         /* ── EXPERIENCE ── */
         .exp-list { display: flex; flex-direction: column; }
         .exp-item {
-            display: grid; grid-template-columns: 190px 1fr; gap: 2rem;
-            padding: 1.75rem 0; border-top: 1px solid var(--border);
+            display: grid; grid-template-columns: 220px 1fr; gap: 2.5rem;
+            padding: 2.5rem 0; border-top: 1px solid var(--border);
         }
         .exp-item:last-child { border-bottom: 1px solid var(--border); }
-        .exp-period { display: block; font-family: var(--mono); font-size: 0.65rem; color: var(--accent); margin-bottom: 0.3rem; }
-        .exp-org { display: block; font-family: var(--sans); font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
-        .exp-role { font-size: 0.9rem; font-weight: 500; color: var(--heading); margin-bottom: 0.65rem; font-family: var(--sans); }
-        .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-        .exp-bullets li { font-size: 0.83rem; color: var(--body); line-height: 1.6; padding-left: 1.2rem; position: relative; font-family: var(--sans); }
-        .exp-bullets li::before { content: '→'; color: var(--accent); position: absolute; left: 0; top: 0.05em; }
+        .exp-period { display: block; font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 0.4rem; font-weight: 500;}
+        .exp-org { display: block; font-family: var(--sans); font-size: 0.9rem; color: var(--muted); line-height: 1.5; font-weight: 400;}
+        .exp-role { font-size: 1.1rem; font-weight: 500; color: var(--heading); margin-bottom: 0.85rem; font-family: var(--sans); }
+        .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .exp-bullets li { font-size: 0.95rem; color: var(--body); line-height: 1.6; padding-left: 1.4rem; position: relative; font-family: var(--sans); }
+        .exp-bullets li::before { content: '→'; color: var(--accent); position: absolute; left: 0; top: 0.05em; font-weight: bold;}
 
         /* ── ABOUT ── */
         .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: start; }
-        .about-text p { font-size: 0.95rem; line-height: 1.9; color: var(--body); margin-bottom: 1.2rem; font-family: var(--sans); }
+        .about-text p { font-size: 1.05rem; line-height: 1.9; color: var(--body); margin-bottom: 1.4rem; font-family: var(--sans); }
         .about-text strong { color: var(--heading); font-weight: 500; }
 
-        .edu-card { background: var(--surface); border: 1px solid var(--border); padding: 1.75rem; }
-        .edu-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
-        .edu-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
+        .edu-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; border-radius: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);}
+        .edu-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; font-weight: 700;}
+        .edu-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
         .edu-item:last-child { border-bottom: none; }
-        .edu-name { font-size: 0.8rem; color: var(--body); line-height: 1.5; font-family: var(--sans); }
-        .edu-status { font-family: var(--mono); font-size: 0.62rem; color: var(--heading); white-space: nowrap; }
+        .edu-name { font-size: 0.9rem; color: var(--body); line-height: 1.5; font-family: var(--sans); }
+        .edu-status { font-family: var(--mono); font-size: 0.7rem; color: var(--heading); white-space: nowrap; font-weight: 500;}
 
         /* ── FOOTER ── */
         footer {
-            border-top: 1px solid var(--border); padding: 2rem 2.5rem;
+            border-top: 1px solid var(--border); padding: 2.5rem 2.5rem;
             display: flex; justify-content: space-between; align-items: center;
-            font-family: var(--mono); font-size: 0.62rem; color: var(--muted);
+            font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
         }
 
         /* ── LIGHTBOX ── */
-        .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.94); align-items: center; justify-content: center; cursor: zoom-out; }
+        .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(34, 39, 46, 0.96); align-items: center; justify-content: center; cursor: zoom-out; backdrop-filter: blur(4px);}
         .lightbox.open { display: flex; }
-        .lightbox img { max-width: 92vw; max-height: 92vh; object-fit: contain; border: 1px solid var(--border); }
-        .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); cursor: pointer; letter-spacing: 0.1em; }
-        .lightbox-close:hover { color: var(--heading); }
+        .lightbox img { 
+			width: 100%; 
+			height: 100%; 
+			max-width: 96vw; 
+			max-height: 96vh; 
+			object-fit: contain; 
+			border: none; 
+			filter: drop-shadow(0 25px 50px rgba(0,0,0,0.8));
+		}
+        .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--mono); font-size: 0.7rem; color: rgba(255,255,255,0.8); cursor: pointer; letter-spacing: 0.1em; }
+        .lightbox-close:hover { color: #fff; }
 
         /* ── REVEAL ── */
         .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -344,31 +383,31 @@
             .ba-grid { grid-template-columns: 1fr; }
             .caps-grid { grid-template-columns: 1fr 1fr; }
             .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .exp-item { grid-template-columns: 1fr; gap: 0.65rem; }
+            .exp-item { grid-template-columns: 1fr; gap: 0.85rem; padding: 2rem 0;}
         }
         @media (max-width: 580px) {
-            nav { padding: 0.9rem 1.25rem; }
+            nav { padding: 1rem 1.25rem; }
             .nav-links { display: none; }
             .container { padding: 0 1.25rem; }
             .section-pad { padding: 4.5rem 0; }
             .caps-grid { grid-template-columns: 1fr; }
             footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-            .proj-header { flex-direction: column; gap: 0.5rem; }
-            .proj-num { font-size: 1.8rem; }
+            .proj-header { flex-direction: column; gap: 0.75rem; }
+            .proj-num { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
 <div class="lightbox" id="lightbox">
-    <span class="lightbox-close" id="lightbox-close">[ ESC / CERRAR ]</span>
+    <span class="lightbox-close" id="lightbox-close">[ ESC / CLOSE ]</span>
     <img id="lightbox-img" src="" alt="">
 </div>
 
 <nav>
     <span class="nav-logo">&lt;joel_foti /&gt;</span>
     <div class="nav-links">
-        <a href="#work">01. Proyectos</a>
+        <a href="#work">01. Projects</a>
         <a href="#stack">02. Capabilities</a>
         <a href="#experience">03. Experience</a>
         <a href="#about">04. Profile</a>
@@ -377,7 +416,6 @@
 
 <main>
 
-    <!-- ══════════════════════════════ HERO ══════════════════════════════ -->
     <section id="hero" class="section-pad">
         <div class="container">
             <div style="position:relative;">
@@ -415,25 +453,25 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
                 <div class="contact-row">
                     <a href="mailto:fotilejo@gmail.com">
-                        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         fotilejo@gmail.com
                     </a>
                     <a href="https://github.com/fotilejo" target="_blank" rel="noopener">
-                        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
                         github.com/fotilejo
                     </a>
                     <a href="https://www.linkedin.com/in/joel-foti" target="_blank" rel="noopener">
-                        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zm-11 19H5v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zm-11 19H5v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
                         LinkedIn
                     </a>
                     <span class="badge">
-                        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                        Inglés C1 Advanced
+                        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                        C1 Advanced English
                     </span>
                 </div>
 
                 <div class="cta-row">
-                    <a href="#work" class="btn">Ver Proyectos</a>
+                    <a href="#work" class="btn">View Projects</a>
                     <a href="http://www-biblio.inti.gob.ar/prueba/" target="_blank" rel="noopener" class="btn btn-ghost">Live Demo ↗</a>
                 </div>
             </div>
@@ -442,67 +480,64 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
     <hr class="div">
 
-    <!-- ══════════════════════════════ PROYECTOS ══════════════════════════════ -->
     <section id="work" class="section-pad">
         <div class="container reveal">
             <div class="sec-header">
-                <p class="section-label">01. Proyectos</p>
+                <p class="section-label">01. Projects</p>
                 <h2>Del catálogo legacy<br>al grafo de conocimiento</h2>
             </div>
 
-            <!-- ── PROYECTO 01 ── -->
             <div class="proj-section">
                 <div class="proj-header">
                     <span class="proj-num">01</span>
                     <div class="proj-meta">
                         <p class="proj-tag" style="color:var(--accent);">Reingeniería de Sistemas · Web Development</p>
                         <h3 class="proj-title">Modernización del Sistema Web de la Biblioteca INTI</h3>
-                        <a class="proj-url" href="http://www-biblio.inti.gob.ar/prueba/" target="_blank" rel="noopener" style="color:var(--accent);">www-biblio.inti.gob.ar/prueba/ ↗</a>
+                        <a class="proj-url" href="http://www-biblio.inti.gob.ar/prueba/" target="_blank" rel="noopener">www-biblio.inti.gob.ar/prueba/ ↗</a>
                     </div>
                 </div>
 
                 <p class="ba-intro">Una interfaz de los años 2000, sin documentación, sin diseño responsivo y con lógica de búsqueda dispersa en archivos sin estructura. Abajo, el antes y el después.</p>
 
-                <div class="ba-grid">
-                    <div>
-                        <p class="ba-col-label before">Antes — Sistema legacy</p>
-                        <div class="ba-thumbs">
-                            <div class="ba-thumb"><img src="IntiViejo1.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 1"></div>
-                            <div class="ba-thumb"><img src="IntiViejo2.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 2"></div>
-                            <div class="ba-thumb"><img src="IntiViejo3.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 3"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="ba-col-label after">Después — Sistema modernizado</p>
-                        <div class="ba-thumbs">
-                            <div class="ba-thumb" style="position:relative;">
-                                <span class="live-badge"><span class="live-dot"></span>Live</span>
-                                <img src="1_Inti_Home.jpg" alt="Nuevo sitio web de la Biblioteca INTI — Home">
-                            </div>
-                            <div class="ba-thumb"><img src="2_Inti_Busqueda.jpg" alt="Nuevo catálogo INTI — Resultados de búsqueda"></div>
-                            <div class="ba-thumb"><img src="3_Inti_Registro.jpg" alt="Nuevo catálogo INTI — Registro bibliográfico completo"></div>
-                        </div>
-                    </div>
-                </div>
+				<div class="ba-grid">
+					<div>
+						<p class="ba-col-label before">Before — Sistema legacy</p>
+						<div class="ba-thumbs">
+							<div class="ba-thumb"><img src="IntiViejo1.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 1"></div>
+							<div class="ba-thumb"><img src="IntiViejo2.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 2"></div>
+							<div class="ba-thumb"><img src="IntiViejo3.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 3"></div>
+						</div>
+					</div>
+					<div>
+						<p class="ba-col-label after">After — Sistema modernizado</p>
+						<div class="ba-thumbs">
+							<div class="ba-thumb">
+								<span class="live-badge"><span class="live-dot"></span>Live</span>
+								<img src="1_Inti_Home.jpg" alt="Nuevo sitio web de la Biblioteca INTI — Home">
+							</div>
+							<div class="ba-thumb"><img src="2_Inti_Busqueda.jpg" alt="Nuevo catálogo INTI — Resultados de búsqueda"></div>
+							<div class="ba-thumb"><img src="3_Inti_Registro.jpg" alt="Nuevo catálogo INTI — Registro bibliográfico completo"></div>
+						</div>
+					</div>
+				</div>
 
                 <div class="case-card">
                     <div class="case-block">
-                        <p class="case-block-label">El Problema</p>
+                        <p class="case-block-label">The Problem</p>
                         <p>Sistema web legacy construido sobre bases ISIS y scripts WXIS sin documentación. La lógica de búsqueda estaba dispersa en archivos <code>.xis</code> y formatos ISIS, operando como silos inaccesibles para la web moderna. Sin diseño responsivo, sin exportación de datos, sin sugerencias de búsqueda.</p>
                     </div>
                     <div class="case-block">
-                        <p class="case-block-label">Proceso de Ingeniería</p>
+                        <p class="case-block-label">Engineering Process</p>
                         <ul>
                             <li>Auditoría e ingeniería inversa de scripts <code>.xis</code> y archivos <code>.fdt</code> de cada base de datos</li>
                             <li>Reescritura completa de los 5 scripts de búsqueda y exportación (<code>simple.xis</code>, <code>avanzada.xis</code>, <code>descriptor.xis</code>, <code>registrounico.xis</code>, <code>export.xis</code>)</li>
                             <li>Extracción del tesauro → normalización a JSON → sistema de sugerencias en tiempo real integrado al buscador</li>
                             <li>Búsqueda avanzada multi-campo con limpieza de caracteres especiales para mejorar el recall</li>
                             <li>SEO técnico y security hardening en servidor Apache (headers, caché, configuración)</li>
-                            <li>Administración del repositorio institucional en Greenstone 3: colecciones, flujos de importación y nueva interfaz</li>
                         </ul>
                     </div>
                     <div class="case-block">
-                        <p class="case-block-label">Funcionalidades Entregadas</p>
+                        <p class="case-block-label">Delivered Features</p>
                         <ul>
                             <li>Guardar y compartir búsquedas vía URLs persistentes</li>
                             <li>Exportación de resultados a CSV y TXT</li>
@@ -517,21 +552,18 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
                         <span class="tag">Apache Admin</span>
                         <span class="tag">HTML5 / CSS3 / JS</span>
                         <span class="tag">JSON APIs</span>
-                        <span class="tag">AACR2 / MARC21</span>
-                        <span class="tag">Greenstone 3</span>
                         <span class="tag">SEO &amp; Security</span>
                     </div>
                 </div>
             </div>
 
-            <!-- ── PROYECTO 02 ── -->
             <div class="proj-section">
                 <div class="proj-header">
                     <span class="proj-num">02</span>
                     <div class="proj-meta">
                         <p class="proj-tag" style="color:var(--green);">Data Engineering · Python · ETL</p>
                         <h3 class="proj-title">Motor de Transformación a JSON</h3>
-                        <a class="proj-url" href="https://github.com/fotilejo/data-normalizer-etl" target="_blank" rel="noopener" style="color:var(--green);">github.com/fotilejo/data-normalizer-etl ↗</a>
+                        <a class="proj-url" href="https://github.com/fotilejo/data-normalizer-etl" target="_blank" rel="noopener">github.com/fotilejo/data-normalizer-etl ↗</a>
                     </div>
                 </div>
 
@@ -539,13 +571,13 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
                 <div class="ba-grid">
                     <div>
-                        <p class="ba-col-label before">Antes — CSV Legacy en crudo</p>
+                        <p class="ba-col-label before">Before — CSV Legacy en crudo</p>
                         <div class="ba-thumbs">
                             <div class="ba-thumb"><img src="etl_antes.jpg" alt="Vista del CSV exportado con errores de formato"></div>
                         </div>
                     </div>
                     <div>
-                        <p class="ba-col-label after">Después — JSON Estructurado</p>
+                        <p class="ba-col-label after">After — JSON Estructurado</p>
                         <div class="ba-thumbs">
                             <div class="ba-thumb"><img src="etl_despues.jpg" alt="Vista del archivo JSON limpio, normalizado y con listas anidadas"></div>
                         </div>
@@ -554,11 +586,11 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
                 <div class="case-card">
                     <div class="case-block">
-                        <p class="case-block-label">El Problema</p>
+                        <p class="case-block-label">The Problem</p>
                         <p>Las exportaciones masivas de sistemas bibliotecológicos legacy presentan inconsistencias críticas — conflictos de <em>encoding</em>, delimitadores inyectados, campos repetibles colapsados en texto plano — que impiden su migración a bases de datos modernas.</p>
                     </div>
                     <div class="case-block">
-                        <p class="case-block-label">Proceso de Ingeniería</p>
+                        <p class="case-block-label">Engineering Process</p>
                         <ul>
                             <li>Script de diagnóstico exploratorio (EDA) para mapear la estructura de la base cruda</li>
                             <li>Limpieza estructural con Pandas: purga de nulos y estandarización <code>snake_case</code></li>
@@ -583,14 +615,13 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
                 </div>
             </div>
 
-            <!-- ── PROYECTO 03 ── -->
             <div class="proj-section">
                 <div class="proj-header">
                     <span class="proj-num">03</span>
                     <div class="proj-meta">
                         <p class="proj-tag" style="color:var(--amber);">Knowledge Graphs · Semantic Web</p>
                         <h3 class="proj-title">Motor de Entidades y Control de Autoridades</h3>
-                        <a class="proj-url" href="https://github.com/fotilejo/Semantic-Entity-Extractor-Graph-Modeler" target="_blank" rel="noopener" style="color:var(--amber);">github.com/fotilejo/Semantic-Entity-Extractor-Graph-Modeler ↗</a>
+                        <a class="proj-url" href="https://github.com/fotilejo/Semantic-Entity-Extractor-Graph-Modeler" target="_blank" rel="noopener">github.com/fotilejo/Semantic-Entity-Extractor-Graph-Modeler ↗</a>
                     </div>
                 </div>
 
@@ -598,13 +629,13 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
                 <div class="ba-grid">
                     <div>
-                        <p class="ba-col-label before">Antes — JSON Plano (materia prima)</p>
+                        <p class="ba-col-label before">Before — JSON Plano (materia prima)</p>
                         <div class="ba-thumbs">
                             <div class="ba-thumb"><img src="bibliotecaJSON.jpg" alt="Vista del JSON plano con atributos redundantes"></div>
                         </div>
                     </div>
                     <div>
-                        <p class="ba-col-label after">Después — Nodos y Relaciones <span style="font-size:0.55rem;color:var(--muted);text-transform:none;letter-spacing:0;">( showcase autómata )</span></p>
+                        <p class="ba-col-label after">After — Nodos y Relaciones <span style="font-size:0.55rem;color:var(--muted);text-transform:none;letter-spacing:0;margin-left:4px;">( showcase autómata )</span></p>
                         <div class="ba-fader-showcase">
                             <div class="ba-thumb"><img src="biblioteca_grafo_semantico1.jpg" alt="Grafo Semántico — Estructura General"></div>
                             <div class="ba-thumb"><img src="biblioteca_grafo_semantico2.jpg" alt="Grafo Semántico — Relaciones"></div>
@@ -615,16 +646,16 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
                 <div class="case-card">
                     <div class="case-block">
-                        <p class="case-block-label">El Problema</p>
+                        <p class="case-block-label">The Problem</p>
                         <p>Las bases bibliográficas tradicionales almacenan información redundante — el nombre de un autor repetido cientos de veces — creando silos que impiden motores de descubrimiento moderno, búsquedas por inferencia y arquitecturas GraphRAG para IA.</p>
                     </div>
                     <div class="case-block">
-                        <p class="case-block-label">Ingeniería &amp; Resultados</p>
+                        <p class="case-block-label">Engineering &amp; Results</p>
                         <ul>
                             <li><strong>Extracción dinámica:</strong> Despiece algorítmico de registros planos en entidades independientes (Documentos, Autores, Temas)</li>
                             <li><strong>Control de Autoridades al vuelo:</strong> Diccionarios en memoria y normalización de strings para garantizar la unicidad de cada nodo</li>
                             <li><strong>Modelado Semántico:</strong> Generación de tripletas (Sujeto–Predicado–Objeto) con UUIDs trazables</li>
-                            <li><strong>Impacto:</strong> 2.500 registros → red semántica de <strong>1.104 nodos únicos y 2.237 relaciones</strong>, lista para ingesta en bases de datos de grafos</li>
+                            <li><strong>Impacto:</strong> Despiece de exportaciones masivas en crudo hacia una red semántica de miles de nodos únicos y relaciones, lista para ingesta en bases de datos de grafos</li>
                         </ul>
                     </div>
                     <div class="hitl">
@@ -648,7 +679,6 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
                 </div>
             </div>
 
-            <!-- ── PROYECTO 04 ── -->
             <div class="proj-section">
                 <div class="proj-header">
                     <span class="proj-num">04</span>
@@ -664,10 +694,10 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
                     <div class="case-block">
                         <p class="case-block-label">Sprint 2.1 — Materialización y GraphRAG (Property Graphs)</p>
                         <p><strong style="color:var(--heading);">Tecnologías:</strong> Neo4j · Cypher · APOC</p>
-                        <p style="margin-top:0.5rem;">Ingesta del catálogo bibliotecario (1.104 nodos y 2.237 relaciones) en Neo4j. Backend de alto rendimiento capaz de ejecutar consultas analíticas multi-salto, habilitando motores de recomendación por Content-Based Filtering — calculando distancia semántica mediante descriptores temáticos compartidos en la red.</p>
+                        <p style="margin-top:0.5rem;">Ingesta de corpus bibliotecarios de prueba en Neo4j. Backend de alto rendimiento capaz de ejecutar consultas analíticas multi-salto, habilitando motores de recomendación por Content-Based Filtering — calculando distancia semántica mediante descriptores temáticos compartidos en la red.</p>
                     </div>
                     <div class="case-block">
-                        <p class="case-block-label">Sprint 2.2 — Lógica y Ontologías · Web Semántica W3C <span style="color:var(--amber);font-size:0.6rem;margin-left:0.5rem;">EN DESARROLLO</span></p>
+                        <p class="case-block-label">Sprint 2.2 — Lógica y Ontologías · Web Semántica W3C <span style="color:var(--amber);font-size:0.6rem;margin-left:0.5rem;">IN DEVELOPMENT</span></p>
                         <p><strong style="color:var(--heading);">Tecnologías:</strong> RDF · OWL · SPARQL · Protégé</p>
                         <p style="margin-top:0.5rem;">Construcción de un Grafo de Conocimiento Histórico usando rigor lógico estricto (tripletas Sujeto–Predicado–Objeto) para que el sistema realice inferencias automatizadas sobre procesos históricos complejos — combinando formación en Historia con arquitectura semántica W3C.</p>
                     </div>
@@ -699,7 +729,6 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
     <hr class="div">
 
-    <!-- ══════════════════════════════ CAPABILITIES ══════════════════════════════ -->
     <section id="stack" class="section-pad">
         <div class="container reveal">
             <div class="sec-header">
@@ -715,8 +744,8 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
                 </div>
                 <div class="cap-cell">
                     <p class="cap-phase" style="color:var(--accent);">Metadata Standards</p>
-                    <p class="cap-title">RDA / MARC21 / AACR2 / SKOS</p>
-                    <p class="cap-desc">Normalización de metadatos bibliográficos. Tesauros, descriptores, vocabularios controlados (CDU, LEMB, FOCAD). Control de autoridades.</p>
+                    <p class="cap-title">RDA / MARC21 / FOCAD / AACR2</p>
+                    <p class="cap-desc">Normalización de metadatos bibliográficos. Sistemas de clasificación (CDU) y vocabularios controlados (LEMB, Tesauros). Control de autoridades.</p>
                 </div>
                 <div class="cap-cell">
                     <p class="cap-phase" style="color:var(--amber);">Data &amp; Graphs</p>
@@ -734,18 +763,17 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
     <hr class="div">
 
-    <!-- ══════════════════════════════ EXPERIENCE ══════════════════════════════ -->
     <section id="experience" class="section-pad">
         <div class="container reveal">
             <div class="sec-header">
                 <p class="section-label">03. Experience</p>
-                <h2>Experiencia Laboral</h2>
+                <h2>Work Experience</h2>
             </div>
 
             <div class="exp-list">
                 <div class="exp-item">
                     <div>
-                        <span class="exp-period">Mayo 2023 — Presente</span>
+                        <span class="exp-period">May 2023 — Present</span>
                         <span class="exp-org">Instituto Nacional de Tecnología Industrial (INTI)</span>
                     </div>
                     <div>
@@ -761,7 +789,7 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
                 <div class="exp-item">
                     <div>
-                        <span class="exp-period">Marzo 2024 — Presente</span>
+                        <span class="exp-period">Mar 2024 — Present</span>
                         <span class="exp-org">Instituto María Mazzarello (San Justo)</span>
                     </div>
                     <div>
@@ -775,7 +803,7 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
                 <div class="exp-item">
                     <div>
-                        <span class="exp-period">Marzo — Mayo 2023</span>
+                        <span class="exp-period">Mar — May 2023</span>
                         <span class="exp-org">Biblioteca Central San Benito Abad · UCA</span>
                     </div>
                     <div>
@@ -806,24 +834,24 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
     <hr class="div">
 
-    <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
     <section id="about" class="section-pad">
         <div class="container reveal">
             <div class="sec-header">
                 <p class="section-label">04. Profile</p>
-                <h2>Sobre Mí</h2>
+                <h2>About Me</h2>
             </div>
 
             <div class="about-grid">
                 <div class="about-text">
                     <p>Soy bibliotecario y especialista en sistemas de información con un fuerte perfil tecnológico. Cuento con dos títulos de grado por la <strong>Universidad de Buenos Aires (UBA)</strong> — en Bibliotecología y Ciencia de la Información y en Historia — que me formaron con algo que no abunda en el mercado tech: <strong>rigor metodológico para estructurar, clasificar y recuperar volúmenes masivos de datos complejos</strong>.</p>
-                    <p>En el <strong>INTI</strong>, tomé un sistema web legacy que nadie quería tocar, lo entendí desde los cimientos mediante ingeniería inversa, y lo reconstruí por completo — reescribí scripts de búsqueda, modifiqué bases de datos, integré un tesauro dinámico en JSON y llevé la interfaz a estándares modernos. Luego transformé ese catálogo en un grafo semántico de 1.104 nodos ingestionado en Neo4j, habilitando motores de recomendación y búsqueda por inferencia. El resultado vive en producción.</p>
+                    <p>En el <strong>INTI</strong>, tomé un sistema web legacy sin documentación, lo analicé desde los cimientos mediante ingeniería inversa y lo reconstruí por completo — reescribí scripts de búsqueda, modifiqué bases de datos y llevé la interfaz a estándares modernos. Este nuevo sistema, que integra un tesauro dinámico en JSON para sugerencias, se encuentra desplegado y en producción.</p>
+                    <p>En paralelo, desarrollo proyectos de arquitectura avanzada para documentar metodologías y potenciar el I+D: desde pipelines ETL con Python hasta la transformación de catálogos en grafos semánticos (Neo4j, RDF, OWL) para habilitar motores de recomendación y búsqueda por inferencia.</p>
                     <p>Trabajo con IA (Claude, Gemini) como multiplicador de velocidad de entrega — vibe coding — para construir soluciones que combinan el conocimiento profundo de los datos con la capacidad de entregarlos en arquitecturas escalables. Mi ventaja no es escribir código de memoria: es saber qué construir, por qué, y cómo auditarlo.</p>
                 </div>
 
                 <div>
                     <div class="edu-card">
-                        <p class="edu-label">Educación &amp; Formación</p>
+                        <p class="edu-label">Education &amp; Background</p>
                         <div class="edu-item">
                             <span class="edu-name">Lic. en Ciencia de la Información (UBA)</span>
                             <span class="edu-status">En curso</span>
@@ -838,7 +866,7 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
                         </div>
                         <div class="edu-item">
                             <span class="edu-name">Inglés — Laboratorio de Idiomas UBA</span>
-                            <span class="edu-status">C1 Advanced</span>
+                            <span class="edu-status">Advanced</span>
                         </div>
                         <div class="edu-item">
                             <span class="edu-name">SQL, Python, Excel (Udemy)</span>
@@ -889,7 +917,7 @@ MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
         document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('.ba-thumb, .ss-main, .ss-thumb').forEach(el => {
+    document.querySelectorAll('.ba-thumb, .browser-mockup').forEach(el => {
         el.addEventListener('click', () => {
             const img = el.querySelector('img');
             if (img) openLightbox(img.src, img.alt);

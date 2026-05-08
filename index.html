@@ -4,261 +4,357 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joel Foti — Information Architect & Systems Developer</title>
-    <meta name="description" content="Especialista en sistemas de información, modernización de datos legacy e interfaces web. Buenos Aires, Argentina.">
-
+    <meta name="description" content="Especialista en sistemas de información, modernización de datos legacy, grafos de conocimiento e interfaces web. Buenos Aires, Argentina.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg:         #0f172a;
-            --surface:    #1e293b;
-            --border:     rgba(255,255,255,0.08);
-            --muted:      #94a3b8;
-            --text:       #cbd5e1;
-            --heading:    #f1f5f9;
-            --accent:     #38bdf8;
-            --accent-dim: rgba(56,189,248,0.12);
+            --bg:        #0a0f1e;
+            --surface:   #111827;
+            --surface2:  #1a2235;
+            --border:    rgba(255,255,255,0.06);
+            --border2:   rgba(255,255,255,0.12);
+            --muted:     #6b7280;
+            --text:      #9ca3af;
+            --body:      #d1d5db;
+            --heading:   #f9fafb;
+            --accent:    #38bdf8;
+            --accent2:   #6366f1;
+            --green:     #10b981;
+            --amber:     #f59e0b;
+            --pink:      #ec4899;
+            --mono:      'JetBrains Mono', monospace;
+            --serif:     'Fraunces', serif;
+            --sans:      'DM Sans', sans-serif;
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+        html { scroll-behavior: smooth; }
+
         body {
             background: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
+            color: var(--body);
+            font-family: var(--sans);
+            font-weight: 300;
             line-height: 1.7;
             overflow-x: hidden;
         }
 
         a { color: inherit; text-decoration: none; transition: color 0.2s; }
 
-        /* NAV */
+        /* ── NAV ── */
         nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.1rem 2.5rem;
-            background: rgba(15,23,42,0.88);
-            backdrop-filter: blur(10px);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 2.5rem;
+            background: rgba(10,15,30,0.9);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
-        .nav-logo { font-family: 'Roboto Mono', monospace; font-size: 0.82rem; color: var(--accent); }
-        .nav-links { display: flex; gap: 2.5rem; font-family: 'Roboto Mono', monospace; font-size: 0.75rem; color: var(--muted); }
+        .nav-logo { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; }
+        .nav-links { display: flex; gap: 2rem; font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.08em; }
         .nav-links a:hover { color: var(--accent); }
 
-        /* LAYOUT */
-        .container { max-width: 1060px; margin: 0 auto; padding: 0 2rem; }
-        section { padding: 7rem 0; }
-        hr.divider { border: none; border-top: 1px solid var(--border); }
+        /* ── LAYOUT ── */
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+        .section-pad { padding: 7rem 0; }
+        hr.div { border: none; border-top: 1px solid var(--border); }
 
-        /* HERO */
-        #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 5rem; position: relative; }
-        .eyebrow { font-family: 'Roboto Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
-        h1 { font-size: clamp(2.6rem, 5.5vw, 4.8rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--heading); margin-bottom: 1.5rem; }
-        h1 .subdued { color: var(--muted); }
-        .hero-desc { font-size: 1.05rem; color: var(--text); max-width: 56ch; margin-bottom: 2.5rem; line-height: 1.85; border-left: 2px solid var(--accent); padding-left: 1.25rem; }
-        .contact-row { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; font-family: 'Roboto Mono', monospace; font-size: 0.75rem; color: var(--muted); }
-        .contact-row a { display: flex; align-items: center; gap: 0.45rem; }
+        /* ── LABELS & HEADINGS ── */
+        .eyebrow {
+            font-family: var(--mono); font-size: 0.68rem;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .eyebrow::before { content: ''; width: 1.5rem; height: 1px; background: var(--accent); }
+
+        .section-label {
+            font-family: var(--mono); font-size: 0.65rem;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 0.6rem;
+        }
+
+        h1 {
+            font-family: var(--serif); font-weight: 700;
+            font-size: clamp(2.8rem, 6vw, 5.2rem);
+            line-height: 1.05; letter-spacing: -0.02em;
+            color: var(--heading); margin-bottom: 1.5rem;
+        }
+        h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
+
+        h2 {
+            font-family: var(--serif); font-weight: 600;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            line-height: 1.15; letter-spacing: -0.02em;
+            color: var(--heading);
+        }
+
+        h3.proj-title {
+            font-family: var(--serif); font-weight: 600;
+            font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+            color: var(--heading); letter-spacing: -0.01em;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; padding-top: 5rem; position: relative;
+        }
+
+        .hero-desc {
+            font-family: var(--sans); font-size: 1rem; font-weight: 300;
+            color: var(--body); max-width: 54ch; margin-bottom: 2.5rem;
+            line-height: 1.9; border-left: 2px solid var(--accent);
+            padding-left: 1.25rem;
+        }
+
+        .contact-row {
+            display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;
+            font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
+        }
+        .contact-row a { display: flex; align-items: center; gap: 0.4rem; }
         .contact-row a:hover { color: var(--accent); }
-        .highlight-badge { color: var(--accent); display: flex; align-items: center; gap: 0.45rem; }
-        .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn { font-family: 'Roboto Mono', monospace; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.85rem 1.75rem; border: 1px solid var(--accent); color: var(--accent); transition: all 0.25s; display: inline-block; }
+        .badge { color: var(--accent); display: flex; align-items: center; gap: 0.4rem; }
+
+        .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .btn {
+            font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em;
+            text-transform: uppercase; padding: 0.8rem 1.6rem;
+            border: 1px solid var(--accent); color: var(--accent);
+            transition: all 0.2s; display: inline-block;
+        }
         .btn:hover { background: var(--accent); color: var(--bg); }
-        .btn-ghost { border-color: var(--border); color: var(--muted); }
-        .btn-ghost:hover { border-color: var(--text); color: var(--text); background: transparent; }
+        .btn-ghost { border-color: var(--border2); color: var(--muted); }
+        .btn-ghost:hover { border-color: var(--body); color: var(--body); background: transparent; }
 
-        .code-float { position: absolute; right: 0; top: 55%; transform: translateY(-50%); font-family: 'Roboto Mono', monospace; font-size: 0.7rem; line-height: 1.9; color: var(--accent); opacity: 0.08; pointer-events: none; animation: float 7s ease-in-out infinite; display: none; }
-        @media (min-width: 1024px) { .code-float { display: block; } }
-        @keyframes float { 0%,100%{transform:translateY(-50%)} 50%{transform:translateY(calc(-50% - 12px))} }
+        .code-float {
+            position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+            font-family: var(--mono); font-size: 0.65rem; line-height: 1.9;
+            color: var(--accent); opacity: 0.06; pointer-events: none;
+            animation: levitate 7s ease-in-out infinite; display: none;
+        }
+        @media (min-width: 1100px) { .code-float { display: block; } }
+        @keyframes levitate { 0%,100%{transform:translateY(-50%)} 50%{transform:translateY(calc(-50% - 14px))} }
 
-        /* SECTION HEADER */
-        .section-header { margin-bottom: 3.5rem; }
-        .section-num { font-family: 'Roboto Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.12em; margin-bottom: 0.5rem; }
-        h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 700; color: var(--heading); letter-spacing: -0.02em; line-height: 1.2; }
+        /* ── SECTION HEADER ── */
+        .sec-header { margin-bottom: 3.5rem; }
+        .sec-header h2 { margin-top: 0.4rem; }
 
-        /* BEFORE/AFTER */
-        .ba-intro { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; max-width: 60ch; }
+        /* ── PROJECT HEADER ── */
+        .proj-header {
+            display: flex; align-items: flex-start; gap: 1.5rem;
+            margin-bottom: 2.5rem; padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .proj-num {
+            font-family: var(--mono); font-size: 2.5rem; font-weight: 700;
+            color: var(--border2); line-height: 1; flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        .proj-meta { flex: 1; }
+        .proj-tag {
+            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
+            text-transform: uppercase; margin-bottom: 0.3rem;
+        }
+        .proj-url {
+            font-family: var(--mono); font-size: 0.62rem; display: block;
+            margin-top: 0.3rem; opacity: 0.7;
+        }
+        .proj-url:hover { opacity: 1; }
 
-        .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+        /* ── PROJECT DIVIDER ── */
+        .proj-section {
+            padding: 5rem 0;
+            border-top: 1px solid var(--border);
+        }
+        .proj-section:first-of-type { border-top: none; padding-top: 0; }
+
+        /* ── BA GRID ── */
+        .ba-intro { font-family: var(--sans); font-size: 0.88rem; color: var(--muted); margin-bottom: 1.75rem; max-width: 62ch; line-height: 1.8; }
+
+        .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
 
         .ba-col-label {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
+            text-transform: uppercase; margin-bottom: 0.65rem;
+            display: flex; align-items: center; gap: 0.5rem;
         }
+        .ba-col-label::before { content: ''; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: currentColor; flex-shrink: 0; }
         .ba-col-label.before { color: var(--muted); }
         .ba-col-label.after { color: var(--accent); }
 
-        .ba-col-label::before { content: ''; display: block; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: currentColor; }
-
-        .ba-thumbs { display: flex; flex-direction: column; gap: 0.65rem; }
+        .ba-thumbs { display: flex; flex-direction: column; gap: 0.6rem; }
 
         .ba-thumb {
-            border: 1px solid var(--border);
-            overflow: hidden;
-            background: var(--surface);
-            cursor: zoom-in;
-            position: relative;
+            border: 1px solid var(--border); overflow: hidden;
+            background: var(--surface); cursor: zoom-in; position: relative;
+            transition: border-color 0.2s;
         }
-
-        .ba-thumb img { width: 100%; height: auto; display: block; opacity: 0.8; transition: opacity 0.3s; }
+        .ba-thumb:hover { border-color: var(--border2); }
+        .ba-thumb img { width: 100%; height: auto; display: block; opacity: 0.82; transition: opacity 0.3s; }
         .ba-thumb:hover img { opacity: 1; }
-        
-        /* FADER SHOWCASE AUTÓMATA (Stacking Fader) */
+
+        /* fader showcase */
         .ba-fader-showcase {
-            position: relative;
-            /* Usamos la altura de la imagen más alta para el contenedor */
-            height: 480px; 
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            background: var(--surface);
-            overflow: hidden;
+            position: relative; height: 420px;
+            border: 1px solid var(--border); background: var(--surface); overflow: hidden;
         }
-
         .ba-fader-showcase .ba-thumb {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            /* Efecto de profundidad inicial */
-            transform: scale(0.95) translateY(10px); 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; transform: scale(0.96) translateY(8px);
             transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-            border: none;
-            border-radius: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--surface);
+            border: none; display: flex; align-items: center; justify-content: center; background: var(--surface);
         }
-
-        .ba-fader-showcase .ba-thumb img {
-            max-height: 90%;
-            width: auto;
-            object-fit: contain;
-            /* Sombra para separar la "carta" del fondo */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-        }
-
-        /* Definimos la animación autómata (ciclo de 12 segundos) */
+        .ba-fader-showcase .ba-thumb img { max-height: 90%; width: auto; object-fit: contain; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
         @keyframes faderLoop {
-            0%, 25%, 100% { opacity: 0; transform: scale(0.95) translateY(10px); } /* Oculta */
-            5%, 20% { opacity: 1; transform: scale(1) translateY(0); } /* Visible y al frente */
+            0%,25%,100%{opacity:0;transform:scale(0.96) translateY(8px)}
+            5%,20%{opacity:1;transform:scale(1) translateY(0)}
         }
+        .ba-fader-showcase .ba-thumb:nth-child(1){animation:faderLoop 12s infinite;animation-delay:0s;z-index:3}
+        .ba-fader-showcase .ba-thumb:nth-child(2){animation:faderLoop 12s infinite;animation-delay:4s;z-index:2}
+        .ba-fader-showcase .ba-thumb:nth-child(3){animation:faderLoop 12s infinite;animation-delay:8s;z-index:1}
 
-        /* Asignamos la animación con retrasos para cada 'carta' */
-        .ba-fader-showcase .ba-thumb:nth-child(1) { animation: faderLoop 12s infinite; animation-delay: 0s; z-index: 3; }
-        .ba-fader-showcase .ba-thumb:nth-child(2) { animation: faderLoop 12s infinite; animation-delay: 4s; z-index: 2; }
-        .ba-fader-showcase .ba-thumb:nth-child(3) { animation: faderLoop 12s infinite; animation-delay: 8s; z-index: 1; }
+        /* ── CASE CARD ── */
+        .case-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; }
 
-        /* REAJUSTE DE LA PRIMERA COLUMNA */
-        /* Eliminamos cualquier recuadro forzado en el 'Antes' */
-        .ba-grid > div:first-child .ba-thumb {
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            background: var(--surface);
-            height: auto;
-            overflow: visible;
+        .case-block { padding: 1.1rem 0; border-top: 1px solid var(--border); }
+        .case-block:first-child { border-top: none; padding-top: 0; }
+
+        .case-block-label {
+            font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--muted); margin-bottom: 0.65rem;
         }
+        .case-block p { font-size: 0.88rem; line-height: 1.8; color: var(--body); }
 
-        /* CASE STUDY */
-        .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
-        .screenshots { display: flex; flex-direction: column; gap: 0.85rem; }
-        .ss-main { position: relative; border: 1px solid var(--border); overflow: hidden; background: var(--surface); cursor: zoom-in; }
-        .ss-main img { width: 100%; height: auto; display: block; }
-        .ss-thumb-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
-        .ss-thumb { border: 1px solid var(--border); overflow: hidden; background: var(--surface); cursor: zoom-in; }
-        .ss-thumb img { width: 100%; height: auto; display: block; opacity: 0.75; transition: opacity 0.3s; }
-        .ss-thumb:hover img { opacity: 1; }
+        .case-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+        .case-block ul li {
+            font-size: 0.85rem; color: var(--body); line-height: 1.65;
+            padding-left: 1.35rem; position: relative;
+        }
+        .case-block ul li::before { content: '→'; color: var(--accent); position: absolute; left: 0; top: 0.05em; }
+        .case-block ul li code { font-family: var(--mono); font-size: 0.75rem; white-space: nowrap; }
 
-        .live-badge { position: absolute; top: 0.65rem; right: 0.65rem; font-family: 'Roboto Mono', monospace; font-size: 0.6rem; font-weight: 500; background: #10b981; color: #000; padding: 0.18rem 0.55rem; display: flex; align-items: center; gap: 0.3rem; }
+        /* ── HUMAN IN THE LOOP ── */
+        .hitl {
+            margin-top: 1.25rem;
+            border: 1px solid rgba(99,102,241,0.25);
+            background: rgba(99,102,241,0.04);
+            padding: 1.25rem 1.5rem;
+        }
+        .hitl-header {
+            display: flex; align-items: center; gap: 0.6rem;
+            margin-bottom: 0.85rem;
+        }
+        .hitl-icon { font-size: 1rem; flex-shrink: 0; }
+        .hitl-label {
+            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: #a5b4fc;
+        }
+        .hitl ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+        .hitl ul li {
+            font-size: 0.83rem; color: var(--body); line-height: 1.7;
+            padding-left: 1.35rem; position: relative;
+        }
+        .hitl ul li::before { content: '→'; color: #818cf8; position: absolute; left: 0; top: 0.05em; }
+        .hitl p { font-size: 0.83rem; color: var(--body); line-height: 1.75; }
+
+        /* ── TAGS ── */
+        .tag-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.5rem; }
+        .tag {
+            font-family: var(--mono); font-size: 0.58rem; padding: 0.25rem 0.65rem;
+            border: 1px solid var(--border2); color: var(--muted);
+            background: rgba(255,255,255,0.02); transition: border-color 0.2s, color 0.2s;
+        }
+        .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* live badge */
+        .live-badge {
+            position: absolute; top: 0.6rem; right: 0.6rem;
+            font-family: var(--mono); font-size: 0.58rem; font-weight: 500;
+            background: var(--green); color: #000;
+            padding: 0.15rem 0.5rem; display: flex; align-items: center; gap: 0.3rem;
+        }
         .live-dot { width: 5px; height: 5px; background: #000; border-radius: 50%; animation: blink 1.6s ease-in-out infinite; }
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
-        .case-card { background: var(--surface); border: 1px solid var(--border); padding: 2.25rem; }
-        .case-tag { font-family: 'Roboto Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; }
-        .case-title { font-size: 1.55rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
-        .case-url { font-family: 'Roboto Mono', monospace; font-size: 0.66rem; color: var(--accent); display: block; margin-bottom: 1.75rem; opacity: 0.8; }
-        .case-block { padding: 1.25rem 0; border-top: 1px solid var(--border); }
-        .case-block-label { font-family: 'Roboto Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
-        .case-block p { font-size: 0.88rem; line-height: 1.8; color: var(--text); }
-        .case-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-        .case-block ul li { font-size: 0.85rem; color: var(--text); line-height: 1.65; padding-left: 1.4rem; position: relative; }
-        .case-block ul li::before { content: '→'; color: var(--accent); position: absolute; left: 0; top: 0.05em; }
-        .case-block ul li code { font-family: 'Roboto Mono', monospace; font-size: 0.78rem; white-space: nowrap; }
-        .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.75rem; }
-        .tag { font-family: 'Roboto Mono', monospace; font-size: 0.62rem; padding: 0.28rem 0.7rem; background: rgba(56,189,248,0.07); border: 1px solid rgba(56,189,248,0.2); color: var(--accent); }
-
-        /* CAPABILITIES */
-        .caps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+        /* ── CAPABILITIES ── */
+        .caps-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1px; background: var(--border); border: 1px solid var(--border);
+        }
         .cap-cell { background: var(--surface); padding: 1.75rem 1.5rem; transition: background 0.2s; }
-        .cap-cell:hover { background: var(--accent-dim); }
-        .cap-label { font-family: 'Roboto Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-        .cap-title { font-size: 0.9rem; font-weight: 600; color: var(--heading); margin-bottom: 0.6rem; }
-        .cap-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+        .cap-cell:hover { background: rgba(56,189,248,0.05); }
+        .cap-phase {
+            font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.18em;
+            text-transform: uppercase; margin-bottom: 0.65rem;
+        }
+        .cap-title { font-size: 0.88rem; font-weight: 500; color: var(--heading); margin-bottom: 0.55rem; font-family: var(--sans); }
+        .cap-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.7; font-family: var(--sans); }
 
-        /* EXPERIENCE */
+        /* ── EXPERIENCE ── */
         .exp-list { display: flex; flex-direction: column; }
-        .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding: 2rem 0; border-top: 1px solid var(--border); }
+        .exp-item {
+            display: grid; grid-template-columns: 190px 1fr; gap: 2rem;
+            padding: 1.75rem 0; border-top: 1px solid var(--border);
+        }
         .exp-item:last-child { border-bottom: 1px solid var(--border); }
-        .exp-period { display: block; font-family: 'Roboto Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 0.35rem; }
-        .exp-org { display: block; font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
-        .exp-role { font-size: 0.95rem; font-weight: 600; color: var(--heading); margin-bottom: 0.75rem; }
+        .exp-period { display: block; font-family: var(--mono); font-size: 0.65rem; color: var(--accent); margin-bottom: 0.3rem; }
+        .exp-org { display: block; font-family: var(--sans); font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+        .exp-role { font-size: 0.9rem; font-weight: 500; color: var(--heading); margin-bottom: 0.65rem; font-family: var(--sans); }
         .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-        .exp-bullets li { font-size: 0.85rem; color: var(--text); line-height: 1.6; padding-left: 1.2rem; position: relative; }
+        .exp-bullets li { font-size: 0.83rem; color: var(--body); line-height: 1.6; padding-left: 1.2rem; position: relative; font-family: var(--sans); }
         .exp-bullets li::before { content: '→'; color: var(--accent); position: absolute; left: 0; top: 0.05em; }
 
-        /* ABOUT */
+        /* ── ABOUT ── */
         .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: start; }
-        .about-text p { font-size: 0.97rem; line-height: 1.9; color: var(--text); margin-bottom: 1.25rem; }
-        .about-text strong { color: var(--heading); font-weight: 600; }
+        .about-text p { font-size: 0.95rem; line-height: 1.9; color: var(--body); margin-bottom: 1.2rem; font-family: var(--sans); }
+        .about-text strong { color: var(--heading); font-weight: 500; }
+
         .edu-card { background: var(--surface); border: 1px solid var(--border); padding: 1.75rem; }
-        .edu-label { font-family: 'Roboto Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
-        .edu-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+        .edu-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+        .edu-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
         .edu-item:last-child { border-bottom: none; }
-        .edu-name { font-size: 0.82rem; color: var(--text); line-height: 1.5; }
-        .edu-status { font-family: 'Roboto Mono', monospace; font-size: 0.65rem; color: var(--heading); white-space: nowrap; }
+        .edu-name { font-size: 0.8rem; color: var(--body); line-height: 1.5; font-family: var(--sans); }
+        .edu-status { font-family: var(--mono); font-size: 0.62rem; color: var(--heading); white-space: nowrap; }
 
-        /* FOOTER */
-        footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Roboto Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; color: var(--muted); }
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border); padding: 2rem 2.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+            font-family: var(--mono); font-size: 0.62rem; color: var(--muted);
+        }
 
-        /* REVEAL */
-        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
-        .reveal.visible { opacity: 1; transform: none; }
-
-        /* LIGHTBOX */
-        .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; cursor: zoom-out; }
+        /* ── LIGHTBOX ── */
+        .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.94); align-items: center; justify-content: center; cursor: zoom-out; }
         .lightbox.open { display: flex; }
         .lightbox img { max-width: 92vw; max-height: 92vh; object-fit: contain; border: 1px solid var(--border); }
-        .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Roboto Mono', monospace; font-size: 0.75rem; color: var(--muted); cursor: pointer; letter-spacing: 0.1em; }
+        .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); cursor: pointer; letter-spacing: 0.1em; }
         .lightbox-close:hover { color: var(--heading); }
 
-        /* RESPONSIVE */
+        /* ── REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* ── RESPONSIVE ── */
         @media (max-width: 860px) {
-            .case-grid { grid-template-columns: 1fr; }
+            .ba-grid { grid-template-columns: 1fr; }
             .caps-grid { grid-template-columns: 1fr 1fr; }
             .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .ba-grid { grid-template-columns: 1fr; }
-            .exp-item { grid-template-columns: 1fr; gap: 0.75rem; }
+            .exp-item { grid-template-columns: 1fr; gap: 0.65rem; }
         }
         @media (max-width: 580px) {
-            nav { padding: 1rem 1.25rem; }
+            nav { padding: 0.9rem 1.25rem; }
             .nav-links { display: none; }
             .container { padding: 0 1.25rem; }
-            section { padding: 4.5rem 0; }
+            .section-pad { padding: 4.5rem 0; }
             .caps-grid { grid-template-columns: 1fr; }
             footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+            .proj-header { flex-direction: column; gap: 0.5rem; }
+            .proj-num { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -272,7 +368,7 @@
 <nav>
     <span class="nav-logo">&lt;joel_foti /&gt;</span>
     <div class="nav-links">
-        <a href="#work">01. Case Study</a>
+        <a href="#work">01. Proyectos</a>
         <a href="#stack">02. Capabilities</a>
         <a href="#experience">03. Experience</a>
         <a href="#about">04. Profile</a>
@@ -281,10 +377,12 @@
 
 <main>
 
-    <section id="hero">
+    <!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+    <section id="hero" class="section-pad">
         <div class="container">
             <div style="position:relative;">
-                <div class="code-float" aria-hidden="true"><pre># ISIS to JSON normalizer
+
+                <div class="code-float" aria-hidden="true"><pre># ISIS → JSON normalizer
 def build_suggest_index(db):
     records = []
     for mfn in range(1, db.count+1):
@@ -296,137 +394,145 @@ def build_suggest_index(db):
         })
     return json.dumps(records, ensure_ascii=False)
 
-while searching_xis():
-    apply_format("INTI_WEB_2026")
-    render_spa_results()</pre></div>
+# Graph ingestion
+MERGE (d:Documento {uuid: row.id})
+MERGE (a:Autor {nombre: row.autor})
+MERGE (t:Tema {nombre: row.descriptor})
+MERGE (d)-[:ESCRITO_POR]->(a)
+MERGE (d)-[:TRATA_SOBRE]->(t)</pre></div>
 
                 <p class="eyebrow">Information Architect &amp; Systems Developer</p>
 
                 <h1>
                     Bridging the Gap Between<br>
                     Legacy Data and<br>
-                    <span class="subdued">Modern Architecture.</span>
+                    <em>Modern Architecture.</em>
                 </h1>
 
                 <p class="hero-desc">
-                    Especialista en sistemas de información con foco en la modernización de entornos legacy, arquitectura de metadatos, gestión de bases de datos backend y desarrollo de interfaces web eficientes. Construyo puentes entre infraestructura ISIS/WXIS/Apache y el desarrollo moderno full-stack.
+                    Especialista en sistemas de información con foco en modernización de entornos legacy, arquitectura de metadatos, grafos de conocimiento y desarrollo de interfaces web eficientes. Del catálogo ISIS al grafo semántico — con criterio bibliotecológico en cada paso.
                 </p>
 
                 <div class="contact-row">
                     <a href="mailto:fotilejo@gmail.com">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         fotilejo@gmail.com
                     </a>
                     <a href="https://github.com/fotilejo" target="_blank" rel="noopener">
-                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
                         github.com/fotilejo
                     </a>
                     <a href="https://www.linkedin.com/in/joel-foti" target="_blank" rel="noopener">
-                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zm-11 19H5v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
+                        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zm-11 19H5v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
                         LinkedIn
                     </a>
-                    <span class="highlight-badge">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                        Inglés B2 Upper-Intermediate
+                    <span class="badge">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                        Inglés C1 Advanced
                     </span>
                 </div>
 
                 <div class="cta-row">
-                    <a href="#work" class="btn">Ver Case Study</a>
+                    <a href="#work" class="btn">Ver Proyectos</a>
                     <a href="http://www-biblio.inti.gob.ar/prueba/" target="_blank" rel="noopener" class="btn btn-ghost">Live Demo ↗</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
-    <section id="work">
+    <!-- ══════════════════════════════ PROYECTOS ══════════════════════════════ -->
+    <section id="work" class="section-pad">
         <div class="container reveal">
-            <div class="section-header">
-                <p class="section-num">01. Case Study</p>
-                <h2>Modernización del Sistema Web de la Biblioteca INTI</h2>
+            <div class="sec-header">
+                <p class="section-label">01. Proyectos</p>
+                <h2>Del catálogo legacy<br>al grafo de conocimiento</h2>
             </div>
 
-            <p class="ba-intro">El punto de partida: una interfaz construida sobre tecnología de los años 2000, sin documentación, sin diseño responsivo y con lógica de búsqueda dispersa en archivos sin estructura. Abajo, el antes y el después.</p>
+            <!-- ── PROYECTO 01 ── -->
+            <div class="proj-section">
+                <div class="proj-header">
+                    <span class="proj-num">01</span>
+                    <div class="proj-meta">
+                        <p class="proj-tag" style="color:var(--accent);">Reingeniería de Sistemas · Web Development</p>
+                        <h3 class="proj-title">Modernización del Sistema Web de la Biblioteca INTI</h3>
+                        <a class="proj-url" href="http://www-biblio.inti.gob.ar/prueba/" target="_blank" rel="noopener" style="color:var(--accent);">www-biblio.inti.gob.ar/prueba/ ↗</a>
+                    </div>
+                </div>
 
-            <div class="ba-grid">
-                <div>
-                    <p class="ba-col-label before">Antes — Sistema legacy</p>
-                    <div class="ba-thumbs">
-                        <div class="ba-thumb" data-img="IntiViejo1.jpg">
-                            <img src="IntiViejo1.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 1">
+                <p class="ba-intro">Una interfaz de los años 2000, sin documentación, sin diseño responsivo y con lógica de búsqueda dispersa en archivos sin estructura. Abajo, el antes y el después.</p>
+
+                <div class="ba-grid">
+                    <div>
+                        <p class="ba-col-label before">Antes — Sistema legacy</p>
+                        <div class="ba-thumbs">
+                            <div class="ba-thumb"><img src="IntiViejo1.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 1"></div>
+                            <div class="ba-thumb"><img src="IntiViejo2.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 2"></div>
+                            <div class="ba-thumb"><img src="IntiViejo3.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 3"></div>
                         </div>
-                        <div class="ba-thumb" data-img="IntiViejo2.jpg">
-                            <img src="IntiViejo2.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 2">
-                        </div>
-                        <div class="ba-thumb" data-img="IntiViejo3.jpg">
-                            <img src="IntiViejo3.jpg" alt="Sitio web anterior de la Biblioteca INTI — vista 3">
+                    </div>
+                    <div>
+                        <p class="ba-col-label after">Después — Sistema modernizado</p>
+                        <div class="ba-thumbs">
+                            <div class="ba-thumb" style="position:relative;">
+                                <span class="live-badge"><span class="live-dot"></span>Live</span>
+                                <img src="1_Inti_Home.jpg" alt="Nuevo sitio web de la Biblioteca INTI — Home">
+                            </div>
+                            <div class="ba-thumb"><img src="2_Inti_Busqueda.jpg" alt="Nuevo catálogo INTI — Resultados de búsqueda"></div>
+                            <div class="ba-thumb"><img src="3_Inti_Registro.jpg" alt="Nuevo catálogo INTI — Registro bibliográfico completo"></div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <p class="ba-col-label after">Después — Sistema modernizado</p>
-                    <div class="ba-thumbs">
-                        <div class="ba-thumb" data-img="1_Inti_Home.jpg">
-                            <img src="1_Inti_Home.jpg" alt="Nuevo sitio web de la Biblioteca INTI — Home">
-                        </div>
-                        <div class="ba-thumb" data-img="2_Inti_Busqueda.jpg">
-                            <img src="2_Inti_Busqueda.jpg" alt="Nuevo catálogo INTI — Resultados de búsqueda">
-                        </div>
-                        <div class="ba-thumb" data-img="3_Inti_Registro.jpg">
-                            <img src="3_Inti_Registro.jpg" alt="Nuevo catálogo INTI — Registro bibliográfico completo">
-                        </div>
+
+                <div class="case-card">
+                    <div class="case-block">
+                        <p class="case-block-label">El Problema</p>
+                        <p>Sistema web legacy construido sobre bases ISIS y scripts WXIS sin documentación. La lógica de búsqueda estaba dispersa en archivos <code>.xis</code> y formatos ISIS, operando como silos inaccesibles para la web moderna. Sin diseño responsivo, sin exportación de datos, sin sugerencias de búsqueda.</p>
+                    </div>
+                    <div class="case-block">
+                        <p class="case-block-label">Proceso de Ingeniería</p>
+                        <ul>
+                            <li>Auditoría e ingeniería inversa de scripts <code>.xis</code> y archivos <code>.fdt</code> de cada base de datos</li>
+                            <li>Reescritura completa de los 5 scripts de búsqueda y exportación (<code>simple.xis</code>, <code>avanzada.xis</code>, <code>descriptor.xis</code>, <code>registrounico.xis</code>, <code>export.xis</code>)</li>
+                            <li>Extracción del tesauro → normalización a JSON → sistema de sugerencias en tiempo real integrado al buscador</li>
+                            <li>Búsqueda avanzada multi-campo con limpieza de caracteres especiales para mejorar el recall</li>
+                            <li>SEO técnico y security hardening en servidor Apache (headers, caché, configuración)</li>
+                            <li>Administración del repositorio institucional en Greenstone 3: colecciones, flujos de importación y nueva interfaz</li>
+                        </ul>
+                    </div>
+                    <div class="case-block">
+                        <p class="case-block-label">Funcionalidades Entregadas</p>
+                        <ul>
+                            <li>Guardar y compartir búsquedas vía URLs persistentes</li>
+                            <li>Exportación de resultados a CSV y TXT</li>
+                            <li>Paginación moderna con selector numérico de página</li>
+                            <li>Registros bibliográficos rediseñados, responsivos y accesibles</li>
+                            <li>Interconexión entre Diccionarios Técnicos y Catálogo Bibliográfico</li>
+                        </ul>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag">ISIS / WXIS</span>
+                        <span class="tag">.xis Scripting</span>
+                        <span class="tag">Apache Admin</span>
+                        <span class="tag">HTML5 / CSS3 / JS</span>
+                        <span class="tag">JSON APIs</span>
+                        <span class="tag">AACR2 / MARC21</span>
+                        <span class="tag">Greenstone 3</span>
+                        <span class="tag">SEO &amp; Security</span>
                     </div>
                 </div>
             </div>
 
-            <div class="case-card">
-                <p class="case-tag">Reingeniería &amp; Automatización</p>
-                <h3 class="case-title">Biblioteca Central INTI</h3>
-                <a class="case-url" href="http://www-biblio.inti.gob.ar/prueba/" target="_blank" rel="noopener">www-biblio.inti.gob.ar/prueba/ ↗</a>
-
-                <div class="case-block">
-                    <p class="case-block-label">El Problema</p>
-                    <p>Sistema web legacy construido sobre bases ISIS y scripts WXIS sin documentación. La lógica de búsqueda estaba dispersa en archivos <code>.xis</code> y formatos ISIS, operando como silos inaccesibles para la web moderna. Sin diseño responsivo, sin exportación de datos, sin sugerencias de búsqueda.</p>
-                </div>
-
-                <div class="case-block">
-                    <p class="case-block-label">Proceso de Ingeniería</p>
-                    <ul>
-                        <li>Auditoría e ingeniería inversa de scripts <code>.xis</code> y archivos <code>.fdt</code> de cada base de datos</li>
-                        <li>Reescritura completa de los diversos scripts de búsqueda y exportación (<code>simple.xis</code>, <code>avanzada.xis</code>, <code>descriptor.xis</code>, <code>registrounico.xis</code>, <code>export.xis</code>)</li>
-                        <li>Extracción del tesauro → normalización a JSON → sistema de sugerencias en tiempo real integrado al buscador</li>
-                        <li>Búsqueda avanzada multi-campo con limpieza de caracteres especiales para mejorar el recall</li>
-                        <li>SEO técnico y security hardening en servidor Apache (headers, caché, configuración)</li>
-                    </ul>
-                </div>
-
-                <div class="case-block">
-                    <p class="case-block-label">Funcionalidades Entregadas</p>
-                    <ul>
-                        <li>Funciones de guardar y compartir búsquedas vía URLs persistentes</li>
-                        <li>Exportación de resultados a CSV y TXT</li>
-                        <li>Paginación moderna con selector numérico de página</li>
-                        <li>Registros bibliográficos rediseñados, responsivos y accesibles</li>
-                        <li>Interconexión entre Diccionarios Técnicos y Catálogo Bibliográfico</li>
-                    </ul>
-                </div>
-
-                <div class="tag-row">
-                    <span class="tag">ISIS / WXIS</span>
-                    <span class="tag">.xis Scripting</span>
-                    <span class="tag">JSON APIs</span>
-                    <span class="tag">AACR2 / MARC21</span>
-                    <span class="tag">Apache Admin</span>
-                    <span class="tag">HTML5 / CSS3 / JS</span>
-                    <span class="tag">Greenstone 3</span>
-                    <span class="tag">SEO &amp; Security</span>
-                </div>
-            </div> <div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
-                <div class="section-header" style="margin-bottom: 2.5rem;">
-                    <p class="section-num">Proyecto 02</p>
-                    <h3 style="font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--heading); line-height: 1.2; letter-spacing: -0.02em;">Data Normalizer Pipeline (ETL)</h3>
+            <!-- ── PROYECTO 02 ── -->
+            <div class="proj-section">
+                <div class="proj-header">
+                    <span class="proj-num">02</span>
+                    <div class="proj-meta">
+                        <p class="proj-tag" style="color:var(--green);">Data Engineering · Python · ETL</p>
+                        <h3 class="proj-title">Motor de Transformación a JSON</h3>
+                        <a class="proj-url" href="https://github.com/fotilejo/data-normalizer-etl" target="_blank" rel="noopener" style="color:var(--green);">github.com/fotilejo/data-normalizer-etl ↗</a>
+                    </div>
                 </div>
 
                 <p class="ba-intro">El contraste visual de la curaduría de datos: a la izquierda, la materia prima (CSV legacy) con delimitadores anómalos. A la derecha, el resultado de la transformación (JSON) con su jerarquía semántica recuperada.</p>
@@ -435,230 +541,214 @@ while searching_xis():
                     <div>
                         <p class="ba-col-label before">Antes — CSV Legacy en crudo</p>
                         <div class="ba-thumbs">
-                            <div class="ba-thumb" data-img="etl_antes.jpg">
-                                <img src="etl_antes.jpg" alt="Vista del CSV exportado con errores de formato">
-                            </div>
+                            <div class="ba-thumb"><img src="etl_antes.jpg" alt="Vista del CSV exportado con errores de formato"></div>
                         </div>
                     </div>
                     <div>
                         <p class="ba-col-label after">Después — JSON Estructurado</p>
                         <div class="ba-thumbs">
-                            <div class="ba-thumb" data-img="etl_despues.jpg">
-                                <img src="etl_despues.jpg" alt="Vista del archivo JSON limpio, normalizado y con listas anidadas">
-                            </div>
+                            <div class="ba-thumb"><img src="etl_despues.jpg" alt="Vista del archivo JSON limpio, normalizado y con listas anidadas"></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="case-card">
-                    <p class="case-tag">Data Engineering & Python</p>
-                    <h3 class="case-title">Motor de Transformación a JSON</h3>
-                    <a class="case-url" href="https://github.com/fotilejo/data-normalizer-etl" target="_blank" rel="noopener">github.com/fotilejo/data-normalizer-etl ↗</a>
-
                     <div class="case-block">
                         <p class="case-block-label">El Problema</p>
-                        <p>Las exportaciones masivas de sistemas bibliotecológicos legacy presentan inconsistencias críticas (conflictos de <em>encoding</em>, delimitadores inyectados, campos repetibles colapsados en texto plano) que impiden su migración a bases de datos modernas.</p>
+                        <p>Las exportaciones masivas de sistemas bibliotecológicos legacy presentan inconsistencias críticas — conflictos de <em>encoding</em>, delimitadores inyectados, campos repetibles colapsados en texto plano — que impiden su migración a bases de datos modernas.</p>
                     </div>
-
                     <div class="case-block">
                         <p class="case-block-label">Proceso de Ingeniería</p>
                         <ul>
-                            <li>Desarrollo de script de diagnóstico exploratorio (EDA) para mapear la base cruda.</li>
-                            <li>Automatización de limpieza estructural mediante Pandas (purga de nulos y estandarización <code>snake_case</code>).</li>
-                            <li>Transformación de cadenas planas en listas iterables reales para recuperar la jerarquía de metadatos.</li>
-                            <li>Exportación de alta precisión a formato JSON, listo para su ingesta en la Web Semántica.</li>
+                            <li>Script de diagnóstico exploratorio (EDA) para mapear la estructura de la base cruda</li>
+                            <li>Limpieza estructural con Pandas: purga de nulos y estandarización <code>snake_case</code></li>
+                            <li>Transformación de cadenas planas en listas iterables para recuperar la jerarquía de metadatos</li>
+                            <li>Exportación a JSON estructurado, listo para ingesta en bases de datos de grafos</li>
                         </ul>
                     </div>
-                    
-                    <div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1rem; border-left: 2px solid var(--accent); margin-top: 1rem;">
-                        <p class="case-block-label" style="color: var(--heading);">💡 Decisiones Arquitectónicas (Human-in-the-loop)</p>
-                        <p style="font-size: 0.82rem; margin-bottom: 0;">Durante el desarrollo asistido por IA, identifiqué y corregí fallas críticas en la lógica estándar de los LLMs. Por ejemplo, forcé la reescritura de los scripts para que evadan trampas de metadatos anómalos en cabeceras legacy (<code>sep=;</code>) que rompían la ingesta de Pandas, garantizando un pipeline a prueba de errores humanos de exportación.</p>
+                    <div class="hitl">
+                        <div class="hitl-header">
+                            <span class="hitl-icon">💡</span>
+                            <span class="hitl-label">Decisiones Arquitectónicas — Human-in-the-loop</span>
+                        </div>
+                        <p>Durante el desarrollo asistido por IA, identifiqué y corregí fallas críticas en la lógica estándar de los LLMs. Forcé la reescritura de los scripts para que evadan la trampa del metadato anómalo en cabeceras legacy (<code>sep=;</code>) que rompía la ingesta de Pandas, garantizando un pipeline a prueba de errores humanos de exportación.</p>
                     </div>
-
                     <div class="tag-row">
                         <span class="tag">Python 3.x</span>
                         <span class="tag">Pandas</span>
+                        <span class="tag">ETL Pipeline</span>
                         <span class="tag">Data Architecture</span>
                         <span class="tag">JSON APIs</span>
-                        <span class="tag">ETL Pipeline</span>
                     </div>
                 </div>
             </div>
-            <div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
-                <div class="section-header" style="margin-bottom: 2.5rem;">
-                    <p class="section-num">Proyecto 03</p>
-                    <h3 style="font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--heading); line-height: 1.2; letter-spacing: -0.02em;">Semantic Graph Builder</h3>
+
+            <!-- ── PROYECTO 03 ── -->
+            <div class="proj-section">
+                <div class="proj-header">
+                    <span class="proj-num">03</span>
+                    <div class="proj-meta">
+                        <p class="proj-tag" style="color:var(--amber);">Knowledge Graphs · Semantic Web</p>
+                        <h3 class="proj-title">Motor de Entidades y Control de Autoridades</h3>
+                        <a class="proj-url" href="https://github.com/fotilejo/Semantic-Entity-Extractor-Graph-Modeler" target="_blank" rel="noopener" style="color:var(--amber);">github.com/fotilejo/Semantic-Entity-Extractor-Graph-Modeler ↗</a>
+                    </div>
                 </div>
 
-                <p class="ba-intro">El salto a la Web Semántica: a la izquierda, el catálogo estructurado pero "plano" (islas de información). A la derecha, la topología de Grafo donde documentos, autores y temas se transforman en nodos interconectados matemáticamente.</p>
+                <p class="ba-intro">El salto a la Web Semántica: de un catálogo estructurado pero plano (islas de información) a una topología de grafo donde documentos, autores y temas se transforman en nodos interconectados matemáticamente.</p>
 
                 <div class="ba-grid">
                     <div>
-                        <p class="ba-col-label before">Antes — JSON Plano (Materia Prima)</p>
-                        <div class="ba-thumb" data-img="bibliotecaJSON.jpg">
-                            <img src="bibliotecaJSON.jpg" alt="Vista del JSON plano con atributos redundantes">
+                        <p class="ba-col-label before">Antes — JSON Plano (materia prima)</p>
+                        <div class="ba-thumbs">
+                            <div class="ba-thumb"><img src="bibliotecaJSON.jpg" alt="Vista del JSON plano con atributos redundantes"></div>
                         </div>
                     </div>
-                    
                     <div>
-                        <p class="ba-col-label after">
-                            Después — Nodos y Relaciones 
-                            <span style="text-transform:none; font-size: 0.55rem; color: var(--muted); letter-spacing: 0; margin-left: auto;">( Showcase Autómata )</span>
-                        </p>
+                        <p class="ba-col-label after">Después — Nodos y Relaciones <span style="font-size:0.55rem;color:var(--muted);text-transform:none;letter-spacing:0;">( showcase autómata )</span></p>
                         <div class="ba-fader-showcase">
-                            <div class="ba-thumb" data-img="biblioteca_grafo_semantico1.jpg">
-                                <img src="biblioteca_grafo_semantico1.jpg" alt="Vista del Grafo Semántico - Estructura General">
-                            </div>
-                            <div class="ba-thumb" data-img="biblioteca_grafo_semantico2.jpg">
-                                <img src="biblioteca_grafo_semantico2.jpg" alt="Vista del Grafo Semántico - Relaciones">
-                            </div>
-                            <div class="ba-thumb" data-img="biblioteca_grafo_semantico3.jpg">
-                                <img src="biblioteca_grafo_semantico3.jpg" alt="Vista del Grafo Semántico - Entidades">
-                            </div>
+                            <div class="ba-thumb"><img src="biblioteca_grafo_semantico1.jpg" alt="Grafo Semántico — Estructura General"></div>
+                            <div class="ba-thumb"><img src="biblioteca_grafo_semantico2.jpg" alt="Grafo Semántico — Relaciones"></div>
+                            <div class="ba-thumb"><img src="biblioteca_grafo_semantico3.jpg" alt="Grafo Semántico — Entidades"></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="case-card">
-                    <p class="case-tag">Knowledge Graphs & Semantic Web</p>
-                    <h3 class="case-title">Motor de Entidades y Control de Autoridades</h3>
-                    <a class="case-url" href="https://github.com/fotilejo/Semantic-Entity-Extractor-Graph-Modeler" target="_blank" rel="noopener">github.com/fotilejo/Semantic-Entity-Extractor-Graph-Modeler ↗</a>
-
                     <div class="case-block">
                         <p class="case-block-label">El Problema</p>
-                        <p>Las bases de datos bibliográficas y los repositorios institucionales tradicionales almacenan información redundante (ej. el nombre de un autor repetido decenas de veces). Esto crea "silos de datos" aislados que impiden la implementación de motores de descubrimiento modernos, búsquedas por inferencia o arquitecturas <strong>GraphRAG</strong> para Inteligencia Artificial.</p>
+                        <p>Las bases bibliográficas tradicionales almacenan información redundante — el nombre de un autor repetido cientos de veces — creando silos que impiden motores de descubrimiento moderno, búsquedas por inferencia y arquitecturas GraphRAG para IA.</p>
                     </div>
-
                     <div class="case-block">
-                        <p class="case-block-label">Ingeniería & Utilidad</p>
+                        <p class="case-block-label">Ingeniería &amp; Resultados</p>
                         <ul>
-                            <li><strong>Extracción dinámica:</strong> Despiece algorítmico de registros bibliográficos planos en entidades independientes (Documentos, Autores, Temas).</li>
-                            <li><strong>Control de Autoridades al vuelo:</strong> Uso de diccionarios en memoria y normalización de <em>strings</em> (capitalización) para garantizar la unicidad de cada nodo.</li>
-                            <li><strong>Modelado Semántico:</strong> Generación estructurada de <em>Tripletas Semánticas</em> (Sujeto - Predicado - Objeto) asignando UUIDs trazables.</li>
-                            <li><strong>Impacto Real:</strong> Conversión de un catálogo estático de 2.500 registros en una red semántica densa compuesta por <strong>1.104 Nodos únicos y 2.237 Relaciones</strong>, preparada para ingesta en bases de datos orientadas a grafos.</li>
+                            <li><strong>Extracción dinámica:</strong> Despiece algorítmico de registros planos en entidades independientes (Documentos, Autores, Temas)</li>
+                            <li><strong>Control de Autoridades al vuelo:</strong> Diccionarios en memoria y normalización de strings para garantizar la unicidad de cada nodo</li>
+                            <li><strong>Modelado Semántico:</strong> Generación de tripletas (Sujeto–Predicado–Objeto) con UUIDs trazables</li>
+                            <li><strong>Impacto:</strong> 2.500 registros → red semántica de <strong>1.104 nodos únicos y 2.237 relaciones</strong>, lista para ingesta en bases de datos de grafos</li>
                         </ul>
                     </div>
-                    
-                    <div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1rem; border-left: 2px solid var(--accent); margin-top: 1rem;">
-                        <p class="case-block-label" style="color: var(--heading);">💡 Decisiones Arquitectónicas (Human-in-the-loop)</p>
-                        <ul style="gap: 0.2rem;">
-                            <li style="font-size: 0.82rem;"><strong>Edge Cases de Coautoría:</strong> Detecté que el script base trataba cadenas completas (ej. "Autor A; Autor B") como un solo nodo. Intervine la lógica implementando algoritmos de partición para liberar a cada coautor como una entidad independiente.</li>
-                            <li style="font-size: 0.82rem;"><strong>Fallas de Capitalización:</strong> Identifiqué que variaciones mínimas ("Información" vs "información") duplicaban nodos. Dirigí la implementación de normalización semántica al vuelo (<code>.capitalize()</code>) para blindar el Control de Autoridades del Grafo.</li>
+                    <div class="hitl">
+                        <div class="hitl-header">
+                            <span class="hitl-icon">💡</span>
+                            <span class="hitl-label">Decisiones Arquitectónicas — Human-in-the-loop</span>
+                        </div>
+                        <ul>
+                            <li><strong>Edge cases de coautoría:</strong> Detecté que el script base trataba "Autor A; Autor B" como un solo nodo. Intervine implementando algoritmos de partición para liberar a cada coautor como entidad independiente</li>
+                            <li><strong>Fallas de capitalización:</strong> Identifiqué que variaciones mínimas ("Información" vs "información") duplicaban nodos. Dirigí la normalización semántica al vuelo para blindar el Control de Autoridades</li>
                         </ul>
                     </div>
-
                     <div class="tag-row">
                         <span class="tag">Python 3.x</span>
                         <span class="tag">Knowledge Graphs</span>
                         <span class="tag">Semantic Search</span>
                         <span class="tag">GraphRAG</span>
                         <span class="tag">Data Modeling</span>
+                        <span class="tag">Control de Autoridades</span>
                     </div>
                 </div>
             </div>
-            
-            <div style="margin-top: 6rem; padding-top: 5rem; border-top: 1px dashed var(--border);">
-                <div class="section-header" style="margin-bottom: 2.5rem;">
-                    <p class="section-num" style="color: var(--accent);">Proyecto 04</p>
-                    <h3 style="font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--heading); line-height: 1.2; letter-spacing: -0.02em;">Motores de Grafo y Razonamiento Semántico</h3>
+
+            <!-- ── PROYECTO 04 ── -->
+            <div class="proj-section">
+                <div class="proj-header">
+                    <span class="proj-num">04</span>
+                    <div class="proj-meta">
+                        <p class="proj-tag" style="color:var(--pink);">Graph Databases · Web Semántica W3C</p>
+                        <h3 class="proj-title">Motores de Grafo y Razonamiento Semántico</h3>
+                    </div>
                 </div>
 
-                <p class="ba-intro">Bifurcación del catálogo estructurado en la Fase 1 hacia dos arquitecturas de bases de datos especializadas, demostrando el criterio para elegir la tecnología adecuada según el dominio del problema: rendimiento de búsqueda por afinidad vs. rigor lógico para inferencias complejas.</p>
+                <p class="ba-intro">Bifurcación del catálogo estructurado hacia dos arquitecturas especializadas: rendimiento de búsqueda por afinidad (Property Graphs) versus rigor lógico para inferencias complejas (Web Semántica W3C).</p>
 
                 <div class="case-card">
-                    <div class="case-block" style="border-top: none; padding-top: 0;">
-                        <p class="case-block-label">Sprint 2.1: Materialización y GraphRAG (Property Graphs)</p>
-                        <p><strong>Tecnologías:</strong> Neo4j, Cypher, APOC.<br>
-                        <strong>Objetivo Logrado:</strong> Ingesta del catálogo bibliotecario (1.104 nodos y 2.237 relaciones) en una instancia de Neo4j. Construcción de un backend de alto rendimiento capaz de ejecutar consultas analíticas multi-salto, priorizando la escalabilidad y habilitando motores de recomendación.</p>
-                    </div>
-
                     <div class="case-block">
-                        <p class="case-block-label">Sprint 2.2: Lógica y Ontologías (Web Semántica W3C) - En Desarrollo</p>
-                        <p><strong>Tecnologías:</strong> RDF, OWL, SPARQL, Protégé.<br>
-                        <strong>Objetivo:</strong> Construcción de un "Grafo de Conocimiento Histórico". A diferencia del enfoque de propiedades, este sprint utiliza rigor lógico estricto (tripletas Sujeto-Predicado-Objeto) para que el sistema realice inferencias automatizadas sobre procesos históricos complejos.</p>
+                        <p class="case-block-label">Sprint 2.1 — Materialización y GraphRAG (Property Graphs)</p>
+                        <p><strong style="color:var(--heading);">Tecnologías:</strong> Neo4j · Cypher · APOC</p>
+                        <p style="margin-top:0.5rem;">Ingesta del catálogo bibliotecario (1.104 nodos y 2.237 relaciones) en Neo4j. Backend de alto rendimiento capaz de ejecutar consultas analíticas multi-salto, habilitando motores de recomendación por Content-Based Filtering — calculando distancia semántica mediante descriptores temáticos compartidos en la red.</p>
                     </div>
-                    
-                    <div class="case-block" style="background: rgba(56,189,248,0.03); padding: 1.25rem; border-left: 2px solid var(--accent); margin-top: 1.5rem;">
-                        <p class="case-block-label" style="color: var(--heading);">💡 Resoluciones y Arquitectura Backend (Human-in-the-loop)</p>
-                        <ul style="gap: 0.6rem; list-style: none; padding-left: 0; margin-top: 0.5rem;">
-                            <li style="font-size: 0.85rem; color: var(--text); padding-left: 1.4rem; position: relative;">
-                                <span style="color: var(--accent); position: absolute; left: 0;">→</span>
-                                <strong>Debugging Silencioso en Ingesta:</strong> Durante la materialización del grafo en Neo4j, los scripts iniciales fallaban silenciosamente (0 relaciones creadas). Audité la lógica y detecté una discrepancia en el pipeline ETL: el motor buscaba la llave <code>relaciones</code>, mientras que yo había mapeado la topología bajo la llave semántica <code>enlaces</code>. Refactoricé las consultas Cypher integrando <code>OPTIONAL MATCH</code> y blindaje de tipos de datos, logrando la conexión total del grafo.
-                            </li>
-                            <li style="font-size: 0.85rem; color: var(--text); padding-left: 1.4rem; position: relative;">
-                                <span style="color: var(--accent); position: absolute; left: 0;">→</span>
-                                <strong>Bypass de Restricciones de Entorno:</strong> Ante los bloqueos de seguridad locales de la librería APOC y las extensiones ocultas en Windows, reorienté la arquitectura para forzar la lectura del archivo maestro directamente desde el repositorio raw en la nube (GitHub), garantizando un despliegue sin fricciones.
-                            </li>
-                            <li style="font-size: 0.85rem; color: var(--text); padding-left: 1.4rem; position: relative;">
-                                <span style="color: var(--accent); position: absolute; left: 0;">→</span>
-                                <strong>Sistemas de Recomendación:</strong> Diseñé y probé un algoritmo de <em>Content-Based Filtering</em> que calcula la distancia semántica entre documentos mediante la contabilidad de descriptores temáticos compartidos en la red, superando holgadamente los límites de procesamiento de los JOINs tradicionales en SQL.
-                            </li>
+                    <div class="case-block">
+                        <p class="case-block-label">Sprint 2.2 — Lógica y Ontologías · Web Semántica W3C <span style="color:var(--amber);font-size:0.6rem;margin-left:0.5rem;">EN DESARROLLO</span></p>
+                        <p><strong style="color:var(--heading);">Tecnologías:</strong> RDF · OWL · SPARQL · Protégé</p>
+                        <p style="margin-top:0.5rem;">Construcción de un Grafo de Conocimiento Histórico usando rigor lógico estricto (tripletas Sujeto–Predicado–Objeto) para que el sistema realice inferencias automatizadas sobre procesos históricos complejos — combinando formación en Historia con arquitectura semántica W3C.</p>
+                    </div>
+                    <div class="hitl">
+                        <div class="hitl-header">
+                            <span class="hitl-icon">💡</span>
+                            <span class="hitl-label">Resoluciones de Arquitectura Backend — Human-in-the-loop</span>
+                        </div>
+                        <ul>
+                            <li><strong>Debugging silencioso en ingesta:</strong> Los scripts iniciales fallaban silenciosamente (0 relaciones creadas). Audité la lógica y detecté la discrepancia: el motor buscaba la llave <code>relaciones</code> mientras yo había mapeado la topología bajo <code>enlaces</code>. Refactoricé las consultas Cypher integrando <code>OPTIONAL MATCH</code> y blindaje de tipos, logrando la conexión total del grafo</li>
+                            <li><strong>Bypass de restricciones de entorno:</strong> Ante bloqueos de seguridad locales de APOC en Windows, reorienté la arquitectura para forzar lectura del archivo maestro directamente desde el repositorio raw en GitHub, garantizando despliegue sin fricciones</li>
+                            <li><strong>Algoritmo de recomendación:</strong> Diseñé y probé un algoritmo de Content-Based Filtering que supera holgadamente los límites de los JOINs tradicionales en SQL para este tipo de consulta de afinidad semántica</li>
                         </ul>
                     </div>
-
                     <div class="tag-row">
                         <span class="tag">Neo4j</span>
                         <span class="tag">Cypher</span>
                         <span class="tag">Graph Database</span>
                         <span class="tag">GraphRAG</span>
+                        <span class="tag">RDF / OWL</span>
+                        <span class="tag">SPARQL</span>
                         <span class="tag">Backend Architecture</span>
                     </div>
                 </div>
             </div>
 
-        </div> </section>
+        </div>
+    </section>
 
-    <hr class="divider">
+    <hr class="div">
 
-    <section id="stack">
+    <!-- ══════════════════════════════ CAPABILITIES ══════════════════════════════ -->
+    <section id="stack" class="section-pad">
         <div class="container reveal">
-            <div class="section-header">
-                <p class="section-num">02. Core Capabilities</p>
+            <div class="sec-header">
+                <p class="section-label">02. Core Capabilities</p>
                 <h2>Stack &amp; Skills</h2>
             </div>
 
             <div class="caps-grid">
                 <div class="cap-cell">
-                    <p class="cap-label">Library Systems</p>
-                    <p class="cap-title">ISIS / Koha / DSpace</p>
-                    <p class="cap-desc">Implementación y modernización de SIGB (Koha, ABCD, Alma) y repositorios institucionales (Greenstone 3, DSpace).</p>
+                    <p class="cap-phase" style="color:var(--accent);">Library Systems</p>
+                    <p class="cap-title">ISIS / Koha / DSpace / Greenstone</p>
+                    <p class="cap-desc">Implementación y modernización de SIGB (Koha, ABCD, Alma) y repositorios institucionales (Greenstone 3, DSpace). Administración de servidor Apache.</p>
                 </div>
                 <div class="cap-cell">
-                    <p class="cap-label">Metadata Standards</p>
-                    <p class="cap-title">RDA / MARC21 / AACR2</p>
-                    <p class="cap-desc">Normalización internacional de metadatos bibliográficos. Tesauros, descriptores y vocabularios controlados (CDU, LEMB, FOCAD).</p>
+                    <p class="cap-phase" style="color:var(--accent);">Metadata Standards</p>
+                    <p class="cap-title">RDA / MARC21 / AACR2 / SKOS</p>
+                    <p class="cap-desc">Normalización de metadatos bibliográficos. Tesauros, descriptores, vocabularios controlados (CDU, LEMB, FOCAD). Control de autoridades.</p>
                 </div>
                 <div class="cap-cell">
-                    <p class="cap-label">Web & Backend</p>
-                    <p class="cap-title">HTML/CSS/JS · Neo4j</p>
-                    <p class="cap-desc">Desarrollo de interfaces, bases de datos orientadas a grafos, scripting Cypher y gestión de infraestructura Apache.</p>
+                    <p class="cap-phase" style="color:var(--amber);">Data &amp; Graphs</p>
+                    <p class="cap-title">Python · Neo4j · RDF · Cypher</p>
+                    <p class="cap-desc">Pipelines ETL con Pandas, modelado de grafos de conocimiento, ingesta en Neo4j, tripletas semánticas y consultas SPARQL. Orquestación con IA.</p>
                 </div>
                 <div class="cap-cell">
-                    <p class="cap-label">Soft Skills</p>
-                    <p class="cap-title">Comunicación &amp; Docencia</p>
-                    <p class="cap-desc">Años de experiencia docente en nivel secundario y superior forjaron capacidad de síntesis, manejo de grupos y comunicación técnica a distintas audiencias.</p>
+                    <p class="cap-phase" style="color:var(--green);">Web &amp; Infra</p>
+                    <p class="cap-title">HTML/CSS/JS · Apache · SEO</p>
+                    <p class="cap-desc">Interfaces responsivas, integración con backends legacy, security hardening y SEO técnico en servidor Apache. Vibe coding con Claude y Gemini.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
-    <section id="experience">
+    <!-- ══════════════════════════════ EXPERIENCE ══════════════════════════════ -->
+    <section id="experience" class="section-pad">
         <div class="container reveal">
-            <div class="section-header">
-                <p class="section-num">03. Experience</p>
+            <div class="sec-header">
+                <p class="section-label">03. Experience</p>
                 <h2>Experiencia Laboral</h2>
             </div>
 
             <div class="exp-list">
-
                 <div class="exp-item">
-                    <div class="exp-meta">
+                    <div>
                         <span class="exp-period">Mayo 2023 — Presente</span>
                         <span class="exp-org">Instituto Nacional de Tecnología Industrial (INTI)</span>
                     </div>
-                    <div class="exp-content">
+                    <div>
                         <p class="exp-role">Bibliotecario · Sistemas &amp; Procesos Técnicos</p>
                         <ul class="exp-bullets">
                             <li>Diseño y desarrollo del nuevo sitio web de la Biblioteca: frontend, integración backend con bases ISIS y administración del servidor Apache</li>
@@ -670,11 +760,11 @@ while searching_xis():
                 </div>
 
                 <div class="exp-item">
-                    <div class="exp-meta">
+                    <div>
                         <span class="exp-period">Marzo 2024 — Presente</span>
                         <span class="exp-org">Instituto María Mazzarello (San Justo)</span>
                     </div>
-                    <div class="exp-content">
+                    <div>
                         <p class="exp-role">Bibliotecario Escolar · Cargo Titular</p>
                         <ul class="exp-bullets">
                             <li>Gestión integral de la biblioteca: procesos técnicos, inventariado y servicio de circulación</li>
@@ -684,11 +774,11 @@ while searching_xis():
                 </div>
 
                 <div class="exp-item">
-                    <div class="exp-meta">
+                    <div>
                         <span class="exp-period">Marzo — Mayo 2023</span>
                         <span class="exp-org">Biblioteca Central San Benito Abad · UCA</span>
                     </div>
-                    <div class="exp-content">
+                    <div>
                         <p class="exp-role">Prácticas Profesionales en Bibliotecología</p>
                         <ul class="exp-bullets">
                             <li>Procesos técnicos: catalogación en AACR2 y MARC21</li>
@@ -698,43 +788,37 @@ while searching_xis():
                 </div>
 
                 <div class="exp-item">
-                    <div class="exp-meta">
+                    <div>
                         <span class="exp-period">2017 — 2022</span>
                         <span class="exp-org">Diversas Instituciones</span>
                     </div>
-                    <div class="exp-content">
+                    <div>
                         <p class="exp-role">Profesor de Historia · Nivel Secundario y Superior</p>
                         <ul class="exp-bullets">
                             <li>Dictado de clases, diseño curricular y evaluación continua</li>
-                            <li>Formación de grupos de hasta 35 estudiantes: habilidades de síntesis, liderazgo y comunicación técnica aplicadas hoy al trabajo con equipos y usuarios</li>
+                            <li>Formación de grupos de hasta 35 estudiantes: síntesis, liderazgo y comunicación técnica aplicadas hoy al trabajo con equipos y usuarios</li>
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
-    <section id="about">
+    <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
+    <section id="about" class="section-pad">
         <div class="container reveal">
-            <div class="section-header">
-                <p class="section-num">04. Profile</p>
+            <div class="sec-header">
+                <p class="section-label">04. Profile</p>
                 <h2>Sobre Mí</h2>
             </div>
 
             <div class="about-grid">
                 <div class="about-text">
-                    <p>
-                        Soy bibliotecario y especialista en sistemas de información con un fuerte perfil tecnológico. Cuento con dos títulos de grado por la <strong>Universidad de Buenos Aires (UBA)</strong> — en Bibliotecología y Ciencia de la Información y en Historia — que me formaron con algo que no abunda en el mercado tech: <strong>rigor metodológico para estructurar, clasificar y recuperar volúmenes masivos de datos complejos</strong>.
-                    </p>
-                    <p>
-                        En el <strong>INTI</strong>, tomé un sistema web legacy que nadie quería tocar, lo entendí desde los cimientos mediante ingeniería inversa, y lo reconstruí por completo: reescribí scripts de búsqueda, modifiqué bases de datos, desarrollé la lógica backend para integrar un tesauro dinámico en JSON y llevé la interfaz a estándares modernos integrando tanto frontend como manejo directo de bases de datos. El resultado vive en producción y es usado por investigadores todos los días.
-                    </p>
-                    <p>
-                        Trabajo con IA (Claude, Gemini) como multiplicador de velocidad de entrega — lo que se conoce como <em>vibe coding</em> — para construir soluciones que combinan el conocimiento profundo de los datos con la capacidad de entregarlos en arquitecturas escalables.
-                    </p>
+                    <p>Soy bibliotecario y especialista en sistemas de información con un fuerte perfil tecnológico. Cuento con dos títulos de grado por la <strong>Universidad de Buenos Aires (UBA)</strong> — en Bibliotecología y Ciencia de la Información y en Historia — que me formaron con algo que no abunda en el mercado tech: <strong>rigor metodológico para estructurar, clasificar y recuperar volúmenes masivos de datos complejos</strong>.</p>
+                    <p>En el <strong>INTI</strong>, tomé un sistema web legacy que nadie quería tocar, lo entendí desde los cimientos mediante ingeniería inversa, y lo reconstruí por completo — reescribí scripts de búsqueda, modifiqué bases de datos, integré un tesauro dinámico en JSON y llevé la interfaz a estándares modernos. Luego transformé ese catálogo en un grafo semántico de 1.104 nodos ingestionado en Neo4j, habilitando motores de recomendación y búsqueda por inferencia. El resultado vive en producción.</p>
+                    <p>Trabajo con IA (Claude, Gemini) como multiplicador de velocidad de entrega — vibe coding — para construir soluciones que combinan el conocimiento profundo de los datos con la capacidad de entregarlos en arquitecturas escalables. Mi ventaja no es escribir código de memoria: es saber qué construir, por qué, y cómo auditarlo.</p>
                 </div>
 
                 <div>
@@ -745,16 +829,16 @@ while searching_xis():
                             <span class="edu-status">En curso</span>
                         </div>
                         <div class="edu-item">
-                            <span class="edu-name">Prof. de Enseñanza Media y Superior en Bibliotecología y Ciencia de la Información (UBA)</span>
+                            <span class="edu-name">Prof. en Bibliotecología y Ciencia de la Información (UBA)</span>
                             <span class="edu-status">Grado</span>
                         </div>
                         <div class="edu-item">
-                            <span class="edu-name">Prof. de Enseñanza Media y Superior en Historia (UBA)</span>
+                            <span class="edu-name">Prof. en Historia (UBA)</span>
                             <span class="edu-status">Grado</span>
                         </div>
                         <div class="edu-item">
                             <span class="edu-name">Inglés — Laboratorio de Idiomas UBA</span>
-                            <span class="edu-status">B2 Upper-Intermediate (8 años)</span>
+                            <span class="edu-status">C1 Advanced</span>
                         </div>
                         <div class="edu-item">
                             <span class="edu-name">SQL, Python, Excel (Udemy)</span>
@@ -778,13 +862,11 @@ while searching_xis():
 </footer>
 
 <script>
-    // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.06 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Smooth nav
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
@@ -793,10 +875,8 @@ while searching_xis():
         });
     });
 
-    // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.getElementById('lightbox-close');
 
     function openLightbox(src, alt) {
         lightboxImg.src = src;
@@ -804,14 +884,12 @@ while searching_xis():
         lightbox.classList.add('open');
         document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox() {
         lightbox.classList.remove('open');
         document.body.style.overflow = '';
     }
 
-    // Attach to all zoomable images
-    document.querySelectorAll('.ss-main, .ss-thumb, .ba-thumb').forEach(el => {
+    document.querySelectorAll('.ba-thumb, .ss-main, .ss-thumb').forEach(el => {
         el.addEventListener('click', () => {
             const img = el.querySelector('img');
             if (img) openLightbox(img.src, img.alt);
@@ -819,7 +897,7 @@ while searching_xis():
     });
 
     lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target === lightboxImg) closeLightbox(); });
-    lightboxClose.addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
